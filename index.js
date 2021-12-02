@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const app = express();
-const url = "http://118.91.37.158:8080";
+const url = "http://118.91.37.158:8000";
 
 app.listen(8080, () => {
   console.log('Server is running on port : 8080')
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     const uri = 'https://osu.ppy.sh/oauth/authorize?'+
         'client_id=11183&'+
-        'redirect_uri=http://localhost:8080/authorize&'+
+        'redirect_uri='+url+'/authorize&'+
         'response_type=code';
     return res.redirect(uri);
 });
@@ -38,7 +38,7 @@ app.get('/authorize', async(req, res) => {
         grant_type: 'authorization_code',
         client_id: 11183,
         client_secret: 'vzFBNpSCxrHrQc2nar4n9u8KUQ89HzB6xDJPV6rB',
-        redirect_uri: 'http://localhost:8080/authorize'
+        redirect_uri: url+'/authorize'
     },
     json : true
     });
