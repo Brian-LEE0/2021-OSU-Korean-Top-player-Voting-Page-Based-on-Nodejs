@@ -1,10 +1,16 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const app = express();
+const url = "http://118.91.37.158:8080";
+
 app.listen(8080, () => {
   console.log('Server is running on port : 8080')
 });
 app.use(cookieParser());
+
+app.use(express.static('assets')); // assets 폴더 지정
+
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   return res.render('index');
@@ -60,7 +66,6 @@ app.get('/main',(req,res)=>{
             image : obj["avatar_url"],
             userpage : "osu.ppy.sh/users/"+obj["id"]
         });
-        console.log(obj["avatar_url"]);
     });
     
 });
