@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,27 +19,27 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
-
+        
         body {
             background-color: rgb(12, 12, 12);
         }
-
+        
         .container {
             padding: 1rem !important;
             padding-top: 2rem !important;
             padding-bottom: 2rem !important;
         }
-
+        
         .wrapper {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
-
+        
         .logo img {
             width: 50rem;
         }
-
+        
         .btn-wrapper input {
             border-radius: 0;
             border: 1px solid white;
@@ -46,7 +47,7 @@
             color: white;
             text-decoration: none;
         }
-
+        
         .btn-wrapper input:hover,
         .btn-wrapper input:focus {
             outline: none !important;
@@ -57,6 +58,7 @@
             text-decoration: none;
             transition: all 0.8ms;
         }
+        
         .black-bg {
             position: relative;
             width: 100%;
@@ -65,29 +67,31 @@
             opacity: 0.2;
             z-index: 999;
         }
+        
         .content-bg {
-            
             background-image: url('img/bg.jpg');
             background-position: 50% 50%;
             background-size: 100%;
             width: 100%;
             height: 500px;
         }
+        
         .text {
             z-index: 999;
             position: absolute;
             color: white;
             font-weight: bold;
         }
+        
         .content {
             margin-top: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="wrapper">
@@ -95,15 +99,15 @@
                 <img src="img/title.svg">
             </div>
             <div class="btn-wrapper">
-                <% if (typeof (nicname) == 'undefined') { %>
+                <% if (typeof (nicname_me) == 'undefined') { %>
                     <form action="/login">
                         <input class="btn" type="submit" value="Login">
                     </form>
-                <% } else { %>
-                    <div style="display: flex; justify-content: center; align-items: flex-start;">
-                        <span style="color: white; margin-right: 1rem;"><%= nicname %></span>
-                        <img style="width: 64px; " src=<%= image %>>
-                    </div>
-                <% } %>
+                    <% } else { %>
+                        <div style="display: flex; justify-content: center; align-items: flex-start;">
+                            <span style="color: white; margin-right: 1rem;"><%= nicname_me %></span>
+                            <img style="width: 64px; " src=<%=image_me %>>
+                        </div>
+                        <% } %>
             </div>
         </div>

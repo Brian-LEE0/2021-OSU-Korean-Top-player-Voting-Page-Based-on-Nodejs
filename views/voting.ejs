@@ -1,0 +1,85 @@
+<%- include ("./layout/top") %>
+    <div class="content">
+        <div class="text">
+            <h1>CHOOSE YOUR BEST KOREAN PLAYER IN 2021</h1>
+        </div>
+        <div class="black-bg ">
+            <div class="content-bg">
+
+            </div>
+        </div>
+
+    </div>
+    <table border="1">
+        <tr>
+            <th>10pt</th>
+            <td>
+                <center>
+                    <% if (typeof (_10pt1_nic) == 'undefined') { %>
+                        <div style="display: flex; justify-content: center; align-items: flex-start;">
+                            <span style="color: white; margin-right: 1rem;"></span>
+                            <img style="width: 64px; " src="">
+                        </div>
+                        <% } else { %>
+                            <div style="display: flex; justify-content: center; align-items: flex-start;">
+                                <span style="color: white; margin-right: 1rem;"><%= _10pt1_nic %></span>
+                                <img style="width: 256px; " src=<%=_10pt1_img %>>
+                            </div>
+                            <% } %>
+                                <form name="_10pt1" , action="/main" , method="POST">
+                                    <input type="text" name="_10pt1" required size="10">
+                                </form>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <th>9pt</th>
+            <td>
+                <center>
+                    <% if (typeof (_9pt1_nic) == 'undefined') { %>
+                        <div style="display: flex; justify-content: center; align-items: flex-start;">
+                            <span style="color: white; margin-right: 1rem;"></span>
+                            <img style="width: 64px; " src="">
+                        </div>
+                        <% } else { %>
+                            <div style="display: flex; justify-content: center; align-items: flex-start;">
+                                <span style="color: white; margin-right: 1rem;"><%= _9pt1_nic %></span>
+                                <img style="width: 256px; " src=<%=_9pt1_img %>>
+                            </div>
+                            <% } %>
+                                <form name="_9pt1" , action="/main" , method="POST">
+                                    <input type="text" name="_9pt1" required size="10">
+                                </form>
+                </center>
+
+            </td>
+        </tr>
+        <tr>
+            <th>8pt</th>
+            <td>
+                <center>
+                    <% if (typeof (_8pt1_nic) == 'undefined') { %>
+                        <div style="display: flex; justify-content: center; align-items: flex-start;">
+                            <span style="color: white; margin-right: 1rem;"></span>
+                            <img style="width: 256px; " src="">
+                        </div>
+                        <% } else { %>
+                            <div style="display: flex; justify-content: center; align-items: flex-start;">
+                                <span style="color: white; margin-right: 1rem;"><%= _8pt1_nic %></span>
+                                <img style="width: 256px; " src=<%=_8pt1_img %>>
+                            </div>
+                            <% } %>
+                                <form name="_8pt1" , action="/main" , method="POST">
+                                    <input type="text" name="_8pt1" required size="10">
+                                </form>
+                </center>
+
+            </td>
+        </tr>
+    </table>
+
+    </div>
+
+    </body>
+
+    </html>
