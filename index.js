@@ -21,6 +21,24 @@ var vote_info = [
     [1, 1, 1]
 ];
 
+var info = new Array(8);
+for (var i = 0; i < info.length; i++) {
+    info[i] = new Array(2);
+}
+
+
+for (var i = 0; i < 8; i++) {
+    for (var j = 0; j < 3; j++) {
+        if (vote_info[i][j]) {
+            info[i][j] = { name: '', img: '', pt: String(10 - i) + "pt" }
+        } else {
+            info[i][j] = 0
+        }
+    }
+}
+console.log(info)
+console.log(vote_info)
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -97,48 +115,17 @@ app.get('/main', (req, res) => {
             nicname_me: obj["username"],
             image_me: obj["avatar_url"],
             userpage_me: "osu.ppy.sh/users/" + obj["id"],
-            _10pt1_nic: "",
-            _10pt1_img: "",
-            _9pt1_nic: "",
-            _9pt1_img: "",
-            _8pt1_nic: "",
-            _8pt1_img: "",
-            _8pt2_nic: "",
-            _8pt2_img: "",
-            _7pt1_nic: "",
-            _7pt1_img: "",
-            _7pt2_nic: "",
-            _7pt2_img: "",
-            _6pt1_nic: "",
-            _6pt1_img: "",
-            _6pt2_nic: "",
-            _6pt2_img: "",
-            _5pt1_nic: "",
-            _5pt1_img: "",
-            _5pt2_nic: "",
-            _5pt2_img: "",
-            _5pt3_nic: "",
-            _5pt3_img: "",
-            _4pt1_nic: "",
-            _4pt1_img: "",
-            _4pt2_nic: "",
-            _4pt2_img: "",
-            _4pt3_nic: "",
-            _4pt3_img: "",
-            _3pt1_nic: "",
-            _3pt1_img: "",
-            _3pt2_nic: "",
-            _3pt2_img: "",
-            _3pt3_nic: "",
-            _3pt3_img: ""
+            vote_info: vote_info,
+            info: info
         };
         res.cookie("params", params);
         res.render('voting.ejs', req.cookies.params);
     });
 });
 
+
+
 app.post('/main', (req, res) => {
-    console.log(req.body)
     var temp;
     var headers = {
         'Accept': req.cookies['Accept'],
@@ -159,22 +146,19 @@ app.post('/main', (req, res) => {
     };
     var params = req.cookies.params
     request(options, function(error, response, body) {
+        console.log(JSON.parse(body)["avatar_url"])
         for (var i = 0; i < vote_info.length; i++) {
-            for (var j = 0; vote_info[i][j] > 0; j++) {
-                console.log("_" + String(10 - i) + "pt" + String(j + 1))
+            for (var j = 0; vote_info[i][j] != 0; j++) {
+                console.log(params.info[i][0])
+                if (temp == (params.info[i][j].pt)) {
+                    params.info[i][j].name = val;
+                    params.info[i][j].img = JSON.parse(body)["avatar_url"];
 
-                if (temp == ("_" + String(10 - i) + "pt" + String(j + 1))) {
-                    params[("_" + String(10 - i) + "pt" + String(j + 1)) + "_nic"] = val;
-                    params[("_" + String(10 - i) + "pt" + String(j + 1)) + "_img"] = JSON.parse(body)["avatar_url"];
                     res.cookie("params", params);
                     res.render("voting.ejs", req.cookies.params);
                     return;
                 }
             }
         }
-
-
     });
-
-
 })
