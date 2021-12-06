@@ -21,11 +21,6 @@ var vote_info = [
     [1, 1, 1]
 ];
 
-var info = new Array(8);
-for (var i = 0; i < info.length; i++) {
-    info[i] = new Array(2);
-}
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -120,9 +115,8 @@ app.post('/main', (req, res) => {
         'Authorization': req.cookies['Authorization']
     }
     val = req.body['name']
-    console.log(req.body)
     const options = {
-        url: "https://osu.ppy.sh/api/v2/users/" + val,
+        url: "https://osu.ppy.sh/api/v2/users/" + val + "",
         //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
         qs: {
             'mode': 'osu',
