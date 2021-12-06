@@ -17,7 +17,7 @@
             console.error(error);
         };
 
-        var vote_info = [
+        const vote_info = [
             [
                 [10, 1], 0, 0
             ],
@@ -53,43 +53,20 @@
             ]
         ];
 
-        var infomation = [];
-        var pt;
+        const infomation = [];
+        const pt;
 
 
 
         $(document).ready(function() {
 
 
-
-            $('.10pt1').click(() => {
-                var name = $("input[name=10pt1_text]").val();
-                var id_check = $(this).attr("class");
-                console.log(id_check)
-                $.ajax({
-                    url: '/main',
-                    dataType: 'json',
-                    type: 'POST',
-                    data: {
-                        "name": name
-                    }
-                })
-
-                .done(function(result) {
-                    if (result) {
-                        console.log(result);
-                        $(".10pt1_img").attr("src", result.img);
-                        $(".10pt1_name").text(result.name);
-                    }
-                });
-            });
-
             vote_info.forEach(i => i.forEach((i) => {
                 if (i) {
                     $("." + String(i[0]) + "pt" + String(i[1])).on("click", () => {
 
                         console.log(i[0], i[1]);
-                        var name = $("input[name=" + String(i[0]) + "pt" + String(i[1]) + "_text]").val();
+                        const name = $("input[name=" + String(i[0]) + "pt" + String(i[1]) + "_text]").val();
                         console.log(name)
                         $.ajax({
                             url: '/main',
@@ -106,15 +83,15 @@
                             if (result) {
                                 $("." + String(i[0]) + "pt" + String(i[1]) + "_img").attr("src", result.img);
                                 $("." + String(i[0]) + "pt" + String(i[1]) + "_name").text(result.name);
-                                $("." + String(i[0]) + "pt" + String(i[1]) + "_rank").text("#" + result.rank);
+                                $("." + String(i[0]) + "pt" + String(i[1]) + "_rank").text(result.rank);
                             }
                         });
                     });
                 }
             }));
 
-            for (var a in vote_info) {
-                for (var info in a) {
+            for (const a in vote_info) {
+                for (const info in a) {
                     if (info) {
 
                     }
