@@ -13,11 +13,116 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- 구글 웹폰트 -->
     <script>
+        jQuery.readyException = function(error) {
+            console.error(error);
+        };
+
+        var vote_info = [
+            [
+                [10, 1], 0, 0
+            ],
+            [
+                [9, 1], 0, 0
+            ],
+            [
+                [8, 1],
+                [8, 2], 0
+            ],
+            [
+                [7, 1],
+                [7, 2], 0
+            ],
+            [
+                [6, 1],
+                [6, 2], 0
+            ],
+            [
+                [5, 1],
+                [5, 2],
+                [5, 2]
+            ],
+            [
+                [4, 1],
+                [4, 2],
+                [4, 2]
+            ],
+            [
+                [3, 1],
+                [3, 2],
+                [3, 2]
+            ]
+        ];
+
         var infomation = [];
+        var pt;
 
-        $(document).ready(() => {
 
-        })
+
+        $(document).ready(function() {
+
+
+
+            $('.10pt1').click(() => {
+                var name = $("input[name=10pt1_text]").val();
+                var id_check = $(this).attr("class");
+                console.log(id_check)
+                $.ajax({
+                    url: '/main',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: {
+                        "name": name
+                    }
+                })
+
+                .done(function(result) {
+                    if (result) {
+                        console.log(result);
+                        $(".10pt1_img").attr("src", result.img);
+                        $(".10pt1_name").text(result.name);
+                    }
+                });
+            });
+
+            vote_info.forEach(i => i.forEach((i) => {
+                if (i) {
+                    $("." + String(i[0]) + "pt" + String(i[1])).on("click", () => {
+
+                        console.log(i[0], i[1]);
+                        var name = $("input[name=" + String(i[0]) + "pt" + String(i[1]) + "_text]").val();
+                        console.log(name)
+                        $.ajax({
+                            url: '/main',
+                            dataType: 'json',
+                            type: 'POST',
+                            data: {
+                                "name": name,
+                                "x": i[0],
+                                "y": i[1]
+                            },
+                        })
+
+                        .done(function(result) {
+                            if (result) {
+                                $("." + String(i[0]) + "pt" + String(i[1]) + "_img").attr("src", result.img);
+                                $("." + String(i[0]) + "pt" + String(i[1]) + "_name").text(result.name);
+                                $("." + String(i[0]) + "pt" + String(i[1]) + "_rank").text("#" + result.rank);
+                            }
+                        });
+                    });
+                }
+            }));
+
+            for (var a in vote_info) {
+                for (var info in a) {
+                    if (info) {
+
+                    }
+
+                }
+
+            }
+        });
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,17 +202,13 @@
             align-items: center;
         }
         
-        table {
+        .main_table {
             background-image: url('');
             background-position: 50% 50%;
             background-size: 100%;
             width: 100%;
-            height: 500px;
-        }
-        
-        td {
-            padding: 10px;
-            border: 1px solid #666666;
+            height: 1300px;
+            word-break: break-all;
         }
     </style>
 </head>
@@ -119,13 +220,15 @@
                 <img src="img/title.svg">
             </div>
             <div class="btn-wrapper">
-                <% if (typeof (nicname_me) == 'undefined') { %>
+                <% if (typeof (nicname_me)=='undefined' ) { %>
                     <form action="/login">
                         <input class="btn" type="submit" value="Login">
                     </form>
                     <% } else { %>
                         <div style="display: flex; justify-content: center; align-items: flex-start;">
-                            <span style="color: white; margin-right: 1rem;"><%= nicname_me %></span>
+                            <span style="color: white; margin-right: 1rem;">
+                                <%= nicname_me %>
+                            </span>
                             <img style="width: 64px; " src=<%=image_me %>>
                         </div>
                         <% } %>

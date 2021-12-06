@@ -26,19 +26,6 @@ for (var i = 0; i < info.length; i++) {
     info[i] = new Array(2);
 }
 
-
-for (var i = 0; i < 8; i++) {
-    for (var j = 0; j < 3; j++) {
-        if (vote_info[i][j]) {
-            info[i][j] = { name: '', img: '', pt: String(10 - i) + "pt" }
-        } else {
-            info[i][j] = 0
-        }
-    }
-}
-console.log(info)
-console.log(vote_info)
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -115,25 +102,25 @@ app.get('/main', (req, res) => {
             nicname_me: obj["username"],
             image_me: obj["avatar_url"],
             userpage_me: "osu.ppy.sh/users/" + obj["id"],
-            vote_info: vote_info,
-            info: info
+            vote_info: vote_info
         };
         res.cookie("params", params);
-        res.render('voting.ejs', req.cookies.params);
+        res.render('voting.ejs', params);
     });
 });
 
 
 
 app.post('/main', (req, res) => {
-    var temp;
+    var temp, temp2;
+    var name;
     var headers = {
         'Accept': req.cookies['Accept'],
         'Content-Type': req.cookies['Content-Type'],
         'Authorization': req.cookies['Authorization']
     }
-    temp = Object.keys(req.body)
-    val = req.body[temp]
+    val = req.body['name']
+    console.log(req.body)
     const options = {
         url: "https://osu.ppy.sh/api/v2/users/" + val,
         //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
@@ -144,21 +131,12 @@ app.post('/main', (req, res) => {
         method: 'GET',
         headers: headers
     };
-    var params = req.cookies.params
+    var json = {};
     request(options, function(error, response, body) {
-        console.log(JSON.parse(body)["avatar_url"])
-        for (var i = 0; i < vote_info.length; i++) {
-            for (var j = 0; vote_info[i][j] != 0; j++) {
-                console.log(params.info[i][0])
-                if (temp == (params.info[i][j].pt)) {
-                    params.info[i][j].name = val;
-                    params.info[i][j].img = JSON.parse(body)["avatar_url"];
-
-                    res.cookie("params", params);
-                    res.render("voting.ejs", req.cookies.params);
-                    return;
-                }
-            }
-        }
+        json.name = val;
+        json.img = JSON.parse(body)["avatar_url"];
+        json.rank = JSON.parse(body)['statistics']["global_rank"]
+        console.log(json);
+        res.json(json);
     });
 })

@@ -10,40 +10,48 @@
         </div>
 
     </div>
-    <table border="1">
-        <% for(var i=0; i < vote_info.length; i++){ %>
-            <tr>
-                <th>
-                    <center>
-                        <%= 10 - i %>pt</center>
-                </th>
-                <% for(var j=0; j < vote_info[i].length; j++){ %>
-                    <%if(vote_info[i][j]){%>
-                        <td>
-                            <center>
-                                <% if (typeof (info[i][j].name)=='undefined' ) { %>
-                                    <div style="display: flex; justify-content: center; align-items: flex-start;">
-                                        <span style="color: white; margin-right: 1rem;"></span>
-                                        <img style="width: 64px; " src="">
-                                    </div>
-                                    <% } else { %>
-                                        <div style="display: flex; justify-content: center; align-items: flex-start;">
-                                            <span style="color: white; margin-right: 1rem;">
-                                                <%= info[i][j].name %>
-                                            </span>
-                                            <img style="width: 64px; " src="<%=info[i][j].img%>">
-                                        </div>
-                                        <% } %>
-                                            <form name="<%= info[i][j].pt %>" , action="/main" , method="POST">
-                                                <input type="text" name="<%= info[i][j].pt %>" required size="10">
-                                            </form>
-                            </center>
-                        </td>
-                        <%}%>
-                            <% } %>
-            </tr>
-            <% } %>
-    </table>
+    <center>
+        <table class="main_table" border="1">
+            <% for(var i=0; i < vote_info.length; i++){ %>
+                <tr>
+                    <th>
+                        <center>
+                            <%= 10 - i %>pt
+                        </center>
+                    </th>
+                    <% for(var j=0; j < vote_info[i].length; j++){ %>
+                        <%if(vote_info[i][j]){%>
+                            <td>
+                                <center>
+                                    <table class="sub_table">
+                                        <tr>
+                                            <td><span style="color: white; margin-right: 1rem;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_name" )%>>
+                                            </span></td>
+                                            <td rowspan="2"><img style="width: 64px; " class=<%=(String(10 - i) + "pt" + String(j + 1) + "_img" )%> src=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span style="color: white; margin-right: 1rem;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_rank" )%>>
+                                        </span></td>
+                                            <td></td>
+                                        </tr>
+
+                                    </table>
+                                    <p>
+                                        <%=String(10 - i) + "pt" + String(j + 1) %>
+                                    </p>
+                                    <input type="text" name=<%=(String(10 - i) + "pt" + String(j + 1) + "_text" )%> required size="10">
+                                    <button type="button" class=<%=String(10 - i) + "pt" + String(j + 1) %>></button>
+                                    <!-- <form class=<%=String(10 - i) + "pt" + String(j + 1) + "_form" %> action="/main" method="POST">
+
+                                </form> -->
+                                </center>
+                            </td>
+                            <%}%>
+                                <% } %>
+                </tr>
+                <% } %>
+        </table>
+    </center>
 
     </div>
 
