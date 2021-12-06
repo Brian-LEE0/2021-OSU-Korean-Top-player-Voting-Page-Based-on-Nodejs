@@ -116,10 +116,13 @@ app.post('/main', (req, res) => {
     }
     val = req.body['name']
     const options = {
-        url: "https://osu.ppy.sh/api/v2/users/" + val + "",
+        url: "https://osu.ppy.sh/api/v2/users/" + val,
+        //"https://osu.ppy.sh/api/v2/search",
         //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
         qs: {
-            'mode': 'osu',
+            'mode': 'osu',//"user",//,
+            //'query' : 'enon',
+            //'page' : 1
             'limit': 5
         },
         method: 'GET',
@@ -127,6 +130,7 @@ app.post('/main', (req, res) => {
     };
     var json = {};
     request(options, function(error, response, body) {
+        //JSON.parse(body).user.data.forEach(i => console.log(i['username']))
         json.name = val;
         json.img = JSON.parse(body)["avatar_url"];
         json.rank = JSON.parse(body)['statistics']["global_rank"]
