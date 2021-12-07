@@ -1,47 +1,40 @@
 <%- include ("./layout/top") %>
-    <div class="content">
-        <div class="text">
-            <h1>CHOOSE YOUR BEST KOREAN PLAYER IN 2021</h1>
-        </div>
-        <div class="black-bg ">
-            <div class="content-bg">
+<div class="submit-container">
+    <a class="submit-btn">Submit</a></div>
 
-            </div>
-        </div>
+    <div style="color: white; font-weight: bold; font-size: 5rem; letter-spacing: 5rem; margin-left: 5rem; text-align: center; margin-top: 2rem;"><span>VOTE<br>SECTION</span></div>
 
-    </div>
-    <center>
-        <table class="main_table" border="1">
+        <div>
             <% for(var i=0; i < vote_info.length; i++){ %>
-                <tr>
-                    <th>
-                        <center>
-                            <%= 10 - i %>pt
-                        </center>
-                    </th>
+                <div>
+                    <div class="pttitle"><%= 10 - i %>pt</div>
                     <% for(var j=0; j < vote_info[i].length; j++){ %>
                         <%if(vote_info[i][j]){%>
                             <td>
                                 
-                                    <table class="sub_table">
+                                    <div class="info">
                                         <tr>
-                                            <td><span style="color: white; margin-right: 1rem;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_name" )%>>
-                                            </span></td>
-                                            <td rowspan="2"><img style="width: 64px; " class=<%=(String(10 - i) + "pt" + String(j + 1) + "_img" )%> src=""></td>
+                                            <td rowspan="2"><img style="width: 64px; height: 64px;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_img" )%> src="/img/placeholder.jpg"></td>
+                                        
+                                            <input class="pname" type="text" name=<%=(String(10 - i) + "pt" + String(j + 1) + "_text" )%> required size="10">
+                                                <!-- <a class="<%=String(10 - i) + "pt" + String(j + 1) %> btn search-btn">SEARCH</a> -->
+                                       
+                                            <!-- <td><span style="color: white;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_name" )%>> -->
+                                           
                                         </tr>
                                         <tr>
-                                            <td><span style="color: white; margin-right: 1rem;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_rank" )%>>
+                                            <!-- <td><span style="color: white;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_rank" )%>> -->
                                         </span></td>
                                             <td></td>
                                         </tr>
 
-                                    </table>
+                                    </div>
                                     <!-- <p>
                                         <%=String(10 - i) + "pt" + String(j + 1) %>
                                     </p> -->
                                     <div class="input_wrap">
-                                        <input class="pname" type="text" name=<%=(String(10 - i) + "pt" + String(j + 1) + "_text" )%> required size="10">
-                                        <!-- <button type="button" class=<%=String(10 - i) + "pt" + String(j + 1) %>></button> -->
+                                        <!-- <input class="pname" type="text" name=<%=(String(10 - i) + "pt" + String(j + 1) + "_text" )%> required size="10"> -->
+                                        <!-- <a class="<%=String(10 - i) + "pt" + String(j + 1) %> btn search-btn">SEARCH</a> -->
                                     </div>
                                     <!-- <form class=<%=String(10 - i) + "pt" + String(j + 1) + "_form" %> action="/main" method="POST">
 
@@ -50,41 +43,56 @@
                             </td>
                             <%}%>
                                 <% } %>
-                </tr>
+                </div>
                 <% } %>
-        </table>
-    </center>
 
-    <script>
-        var inputname;
-        $(document).ready(function() {
-            $('.pname').on('keyup', function() {
-                var sname = $(this).val();
-                inputname = $(this).attr('name');
-                inputname = inputname.replace('_text', '');
-                var data = {
-                    name: sname
+        </div>
+
+        <script>
+            var inputname, rank, name, image;
+    
+            function delay(callback, ms) {
+                var timer = 0;
+                return function () {
+                    var context = this, args = arguments;
+                    clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        callback.apply(context, args);
+                    }, ms || 0);
                 };
+            }
+    
+            $(document).ready(function() {
+                $('.pname').on('keyup', delay(function() {
+                    var sname = $(this).val();
+                    inputname = $(this).attr('name');
+                    inputname = inputname.replace('_text', '');
+                    var data = {
+                        name: sname,
+                        inputname : inputname
+                    };
+    
+                    $.ajax({
+                        url: '/main',
+                        type: 'post',
+                        data: data,
+                        success: function(json) {
+                            name = inputname+"_text";
+                            image = "."+inputname+"_img";
+                            rank = "."+inputname+"_rank";
+                            $('input[name='+name+']').val(json.name);
+                            $(image).attr('src', json.img);
+                            $(rank).text(json.rank.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+                        }
+                    })
+                },500));
 
-                $.ajax({
-                    url: '/main',
-                    type: 'post',
-                    data: data,
-                    success: function(json) {
-                        var name = "."+inputname+"_name";
-                        var image = "."+inputname+"_img";
-                        var rank = "."+inputname+"_rank";
-                        console.log("name = "+name + "image = "+ image + "rank = " + rank);
-                        $(name).text(json.name);
-                        $(image).attr('src', json.img);
-                        $(rank).text(json.rank);
-                    }
+                $('.pname').focusout(function() {
                 })
             })
-        })
-    </script>
+        </script>
     </div>
-
+    
     </body>
 
     </html>
