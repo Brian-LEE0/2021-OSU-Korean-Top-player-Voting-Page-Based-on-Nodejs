@@ -22,7 +22,7 @@
                     <% for(var j=0; j < vote_info[i].length; j++){ %>
                         <%if(vote_info[i][j]){%>
                             <td>
-                                <center>
+                                
                                     <table class="sub_table">
                                         <tr>
                                             <td><span style="color: white; margin-right: 1rem;" class=<%=(String(10 - i) + "pt" + String(j + 1) + "_name" )%>>
@@ -36,15 +36,17 @@
                                         </tr>
 
                                     </table>
-                                    <p>
+                                    <!-- <p>
                                         <%=String(10 - i) + "pt" + String(j + 1) %>
-                                    </p>
-                                    <input type="text" name=<%=(String(10 - i) + "pt" + String(j + 1) + "_text" )%> required size="10">
-                                    <button type="button" class=<%=String(10 - i) + "pt" + String(j + 1) %>></button>
+                                    </p> -->
+                                    <div class="input_wrap">
+                                        <input class="pname" type="text" name=<%=(String(10 - i) + "pt" + String(j + 1) + "_text" )%> required size="10">
+                                        <!-- <button type="button" class=<%=String(10 - i) + "pt" + String(j + 1) %>></button> -->
+                                    </div>
                                     <!-- <form class=<%=String(10 - i) + "pt" + String(j + 1) + "_form" %> action="/main" method="POST">
 
                                 </form> -->
-                                </center>
+                                
                             </td>
                             <%}%>
                                 <% } %>
@@ -53,6 +55,34 @@
         </table>
     </center>
 
+    <script>
+        var inputname;
+        $(document).ready(function() {
+            $('.pname').on('keyup', function() {
+                var sname = $(this).val();
+                inputname = $(this).attr('name');
+                inputname = inputname.replace('_text', '');
+                var data = {
+                    name: sname
+                };
+
+                $.ajax({
+                    url: '/main',
+                    type: 'post',
+                    data: data,
+                    success: function(json) {
+                        var name = "."+inputname+"_name";
+                        var image = "."+inputname+"_img";
+                        var rank = "."+inputname+"_rank";
+                        console.log("name = "+name + "image = "+ image + "rank = " + rank);
+                        $(name).text(json.name);
+                        $(image).attr('src', json.img);
+                        $(rank).text(json.rank);
+                    }
+                })
+            })
+        })
+    </script>
     </div>
 
     </body>

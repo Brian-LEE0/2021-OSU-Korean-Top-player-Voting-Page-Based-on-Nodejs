@@ -46,7 +46,6 @@ app.get("/login", (req, res) => {
     return res.redirect(uri);
 });
 
-const code;
 
 app.get("/authorize", async(req, res) => {
     const { code } = req.query;
@@ -101,10 +100,7 @@ app.get("/main", (req, res) => {
 });
 
 app.post("/main", (req, res) => {
-    const temp,
-        temp2,
         tokn = 1;
-    const name;
     const headers = {
         Accept: req.cookies["Accept"],
         "Content-Type": req.cookies["Content-Type"],
