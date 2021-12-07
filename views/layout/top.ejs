@@ -101,13 +101,15 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Noto Sans KR', sans-serif !important;
+            /* font-family: 'Noto Sans KR', sans-serif !important; */
+            font-family: 'Exo 2', sans-serif;
         }
         
         body {
+            padding-bottom: 10rem;
             background-color: rgb(12, 12, 12);
         }
         
@@ -177,6 +179,10 @@
             align-items: center;
         }
         
+        .sub_table {
+            padding: 1rem;
+        }
+        
         .main_table {
             background-image: url('');
             background-position: 50% 50%;
@@ -187,23 +193,85 @@
         }
 
         input[type="text"] {
-            background: gray;
+            background: transparent;
+            text-decoration: none;
             padding: 1rem;
+            color: white;
             border: none;
+            border-bottom: 1px solid rgb(12, 12, 12);
             outline: none;
             width: 100%;
+            margin-left: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+        }
 
+        input[type="text"]:focus {
+            color: white;
+            border-bottom: 1px solid rgb(255, 0, 119);
+            transition: all 0.2s ease-in-out;
         }
 
         .input_wrap {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             width: 100%;
         }
 
         span[class*="_name"] {
-            font-size: 3rem;
+            font-size: 4rem;
+            font-weight: bold;
         }
+
+        .pttitle {
+            font-size: 5rem;
+            letter-spacing: -2px;
+            font-weight: bold;
+            margin-top: 3rem;
+        }
+
+        .info {
+            display: flex;
+        }
+
+        .info:nth-child(n+2) {
+            margin-top: 1rem;
+        }
+
+        .info span {
+            margin-left: 0.5rem;
+        }
+
+        .submit-container {
+            left: 0;
+            width: 100%; justify-content: center; position: fixed; bottom: 0; margin-top: 4rem; display: flex;
+        }
+
+        .submit-btn { 
+            padding: 2rem; background: rgb(255, 0, 119); color: rgb(12,12,12); font-size: 3rem; width: 100%; max-width: 1150px; font-weight: bold; text-align: center; text-decoration: none;
+        }
+        
+        .submit-btn:hover,
+        .submit-btn:focus { 
+            color: rgb(12,12,12); text-decoration: none;
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 719px) {
+            .container {
+                width: 580px;
+            }
+
+            .btn-wrapper {
+                display: none;
+            }
+
+            .wrapper {
+                justify-content: center;
+            }
+        }
+
     </style>
 </head>
 
