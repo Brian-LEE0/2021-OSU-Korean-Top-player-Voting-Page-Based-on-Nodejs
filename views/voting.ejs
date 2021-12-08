@@ -1,8 +1,27 @@
 <%- include ("./layout/top") %>
+<style>
+.black-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.2;
+    z-index: 999;
+}
+.content-bg {
+    background-image: url("img/bg2.jpg");
+}
+</style>
 <div class="submit-container">
     <a class="submit-btn">Submit</a></div>
 
-    <div class="vote_title"><span>VOTE<br>SECTION</span></div>
+    <div class="vote_title">
+        <img src="img/vote.svg">
+        <div class="black-bg ">
+            <div class="content-bg">
+            </div>
+        </div>
+    </div>
 
         <div>
             <% for(var i=0; i < vote_info.length; i++){ %>
