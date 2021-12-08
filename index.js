@@ -198,5 +198,8 @@ app.post("/main", (req, res) => {
 })
 
 app.get("/submit",(req,res) =>{
+    var submitted_data = JSON.parse(req.body);
+    
+    con.query("")
 
 })
