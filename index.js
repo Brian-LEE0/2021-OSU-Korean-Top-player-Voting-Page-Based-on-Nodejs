@@ -73,30 +73,34 @@ app.get("/authorize", async (req, res) => {
 });
 
 app.get("/main", (req, res) => {
-    if (!req.cookies["Authorization"]) {
-        res.redirect("/");
-    } else { }
-    const headers = {
-        Accept: req.cookies["Accept"],
-        "Content-Type": req.cookies["Content-Type"],
-        Authorization: req.cookies["Authorization"],
-    };
-    const options = {
-        url: "https://osu.ppy.sh/api/v2/me",
-        method: "GET",
-        headers: headers,
-    };
-    request(options, function (error, response, body) {
-        const obj = JSON.parse(body);
-        const params = {
-            nicname_me: obj["username"],
-            image_me: obj["avatar_url"],
-            userpage_me: "osu.ppy.sh/users/" + obj["id"],
-            vote_info: vote_info,
+    try{
+        if (!req.cookies["Authorization"]) {
+            res.redirect("/");
+        }
+        const headers = {
+            Accept: req.cookies["Accept"],
+            "Content-Type": req.cookies["Content-Type"],
+            Authorization: req.cookies["Authorization"],
         };
-        res.cookie("params", params);
-        res.render("voting.ejs", params);
-    });
+        const options = {
+            url: "https://osu.ppy.sh/api/v2/me",
+            method: "GET",
+            headers: headers,
+        };
+        request(options, function (error, response, body) {
+            const obj = JSON.parse(body);
+            const params = {
+                nicname_me: obj["username"],
+                image_me: obj["avatar_url"],
+                userpage_me: "osu.ppy.sh/users/" + obj["id"],
+                vote_info: vote_info,
+            };
+            res.cookie("params", params);
+            res.render("voting.ejs", params);
+        });
+    }catch(err){
+        res.redirect("/");
+    }
 });
 
 app.post("/main", (req, res) => {
@@ -112,84 +116,59 @@ app.post("/main", (req, res) => {
         });
     }
     val = req.body["name"];
-    const opt = {
-        //"https://osu.ppy.sh/api/v2/users/" + val,
-        url: "https://osu.ppy.sh/api/v2/search",
+    request({
+        url: "https://osu.ppy.sh/api/v2/users/" + val,
         //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
         qs: {
-            mode: "user",
-            query: val,
-            page: 1
-            //'limit': 5
+            mode: "osu",
+            limit: 1,
         },
         method: "GET",
         headers: headers,
-    };
-    const json = {};
-    request(opt, function (error, response, body) {
-        try {
-            console.log("error", error);
-            //JSON.parse(body).user.data.forEach(i => console.log(i['username']))
-            console.log(JSON.parse(body).user.data[0].username)
-            const i = JSON.parse(body).user.data;
-            i.forEach((item,index) => {
-                console.log(item.country_code ,index);
-                if(item.country_code != "KR"){
-                    i.splice(index,1);
-                }
-            })
-            console.log(i[0]['username'])
-            
-            
-
-            if (i.length) {
-                request({
-                    url: "https://osu.ppy.sh/api/v2/users/" +
-                        i[0]["username"],
-                    //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
-                    qs: {
-                        mode: "osu",
-                        limit: 1,
-                    },
-                    method: "GET",
-                    headers: headers,
-                },
-                    function (error2, response2, body2) {
-                        json.name = i[0]["username"];
-                        json.img = i[0]["avatar_url"];
-                        json.rank =
-                            JSON.parse(body2)["statistics"]["global_rank"];
-                        console.log(json);
-                        if (json.rank == null) {
-                            res.json({
-                                name: "",
-                                img: "",
-                                rank: "",
-                            });
-                            return 0;
-                        }
+    },
+        function (error2, response2, body2) {
+            var json = {};
+            var Jbody = JSON.parse(body2);
+            try{
+                if (Jbody["username"] == 'undefined' || Jbody["country"]["code"] !='KR') {
+                    console.log("ok")
+                    res.json({
+                        name: "",
+                        img: "",
+                        rank: "",
+                    });
+                    return 0;
+                }else{
+                    console.log(JSON.parse(body2)["username"])
+                    json.name = Jbody["username"];
+                    console.log(json.name)
+                    json.img = Jbody["avatar_url"];
+                    console.log(json.img)
+                    json.rank = Jbody["statistics"]["global_rank"];
+                    console.log(json.rank)
+                    console.log(json);
+                    if (json.rank == null) {
+                        res.json({
+                            name: "",
+                            img: "",
+                            rank: "",
+                        });
+                        return 0;
+                    }else{
                         json.rank = "# " + json.rank;
                         res.json(json);
-                    }
-                )
-                
+                        return 0;
+                    }   
+                }
 
-            } else {
+            }catch(err){
                 res.json({
                     name: "",
                     img: "",
                     rank: "",
                 });
-                return 0;
             }
-        } catch (err) {
-            console.log(err);
-            res.json({
-                name: "",
-                img: "",
-                rank: "",
-            });
-            return;
-        }
-    });
-});
+            
+            
+        })
+})
