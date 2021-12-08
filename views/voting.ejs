@@ -96,7 +96,7 @@
                         type: 'post',
                         data: data,
                         success: function(json) {
-                            if(json.name){
+                            if(json.name != ""){
                                 name = inputname+"_text";
                                 image = "."+inputname+"_img";
                                 rank = "."+inputname+"_rank";
