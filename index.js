@@ -47,7 +47,7 @@ app.get("/login", (req, res) => {
 });
 
 
-app.get("/authorize", async(req, res) => {
+app.get("/authorize", async (req, res) => {
     const { code } = req.query;
     const result = await request_prom({
         method: "POST",
@@ -75,7 +75,7 @@ app.get("/authorize", async(req, res) => {
 app.get("/main", (req, res) => {
     if (!req.cookies["Authorization"]) {
         res.redirect("/");
-    } else {}
+    } else { }
     const headers = {
         Accept: req.cookies["Accept"],
         "Content-Type": req.cookies["Content-Type"],
@@ -86,7 +86,7 @@ app.get("/main", (req, res) => {
         method: "GET",
         headers: headers,
     };
-    request(options, function(error, response, body) {
+    request(options, function (error, response, body) {
         const obj = JSON.parse(body);
         const params = {
             nicname_me: obj["username"],
@@ -100,7 +100,6 @@ app.get("/main", (req, res) => {
 });
 
 app.post("/main", (req, res) => {
-        tokn = 1;
     const headers = {
         Accept: req.cookies["Accept"],
         "Content-Type": req.cookies["Content-Type"],
@@ -121,59 +120,66 @@ app.post("/main", (req, res) => {
             mode: "user",
             query: val,
             page: 1
-                //'limit': 5
+            //'limit': 5
         },
         method: "GET",
         headers: headers,
     };
     const json = {};
-    request(opt, function(error, response, body) {
+    request(opt, function (error, response, body) {
         try {
             console.log("error", error);
             //JSON.parse(body).user.data.forEach(i => console.log(i['username']))
-            console.log(JSON.parse(body).user.data)
-            const i = JSON.parse(body).user.data[0];
-            if (i.country_code == "KR" && tokn == 1) {
-                try {
-                    request({
-                            url: "https://osu.ppy.sh/api/v2/users/" +
-                                i["username"],
-                            //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
-                            qs: {
-                                mode: "osu",
-                                limit: 1,
-                            },
-                            method: "GET",
-                            headers: headers,
-                        },
-                        function(error2, response2, body2) {
-                            json.name = i["username"];
-                            json.img = i["avatar_url"];
-                            json.rank =
-                                JSON.parse(body2)["statistics"]["global_rank"];
-                            console.log(json);
-                            if (json.rank == null) {
-                                res.json({
-                                    name: "",
-                                    img: "",
-                                    rank: "",
-                                });
-                                return 0;
-                            }
-                            json.rank = "# " + json.rank;
-                            res.json(json);
-                        }
-                    )
-                } catch (err) {
-                    console.log(err);
-                    res.json({
-                        name: "",
-                        img: "",
-                        rank: "",
-                    });
-                    return 0;
+            console.log(JSON.parse(body).user.data[0].username)
+            const i = JSON.parse(body).user.data;
+            i.forEach((item,index) => {
+                console.log(item.country_code ,index);
+                if(item.country_code != "KR"){
+                    i.splice(index,1);
                 }
+            })
+            console.log(i[0]['username'])
+            
+            
+
+            if (i.length) {
+                request({
+                    url: "https://osu.ppy.sh/api/v2/users/" +
+                        i[0]["username"],
+                    //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
+                    qs: {
+                        mode: "osu",
+                        limit: 1,
+                    },
+                    method: "GET",
+                    headers: headers,
+                },
+                    function (error2, response2, body2) {
+                        json.name = i[0]["username"];
+                        json.img = i[0]["avatar_url"];
+                        json.rank =
+                            JSON.parse(body2)["statistics"]["global_rank"];
+                        console.log(json);
+                        if (json.rank == null) {
+                            res.json({
+                                name: "",
+                                img: "",
+                                rank: "",
+                            });
+                            return 0;
+                        }
+                        json.rank = "# " + json.rank;
+                        res.json(json);
+                    }
+                )
+                
+
             } else {
+                res.json({
+                    name: "",
+                    img: "",
+                    rank: "",
+                });
                 return 0;
             }
         } catch (err) {
