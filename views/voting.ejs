@@ -137,6 +137,31 @@
 
         $(document).ready(function() {
 
+            $.ajax({
+                url: '/init',
+                type: 'post',
+                data: {
+                    id: $('.id_me').val()
+                },
+                success: function(json) {
+                    console.log(json)
+                    if (json) {
+                        Object.keys(json).forEach((i, index) => {
+                            db[i] = json[i]
+                            console.log(index, i, db[i])
+                            if (index % 3 == 2) {
+                                console.log(i, i + "_avatar", db[i], json[i + "_avatar"])
+                                $('input[name=' + i + '_text]').val(db[i])
+                                if (json[i + "_avatar"]) {
+                                    $('.' + i + "_img").attr('src', json[i + "_avatar"]);
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+
+
             $('.submit-btn').on('click', () => {
                 var str = "";
                 for (var i = 0; i < vote_info.length; i++) {
@@ -150,7 +175,16 @@
                         $.ajax({
                             url: '/submit',
                             type: 'post',
-                            data: db
+                            data: db,
+                            success: function(json) {
+                                alert(json.mes);
+                                window.location.href = json.redirect
+                            },
+                            error: function(json) {
+                                console.log(json)
+                                alert('Invalied access!')
+                            }
+
                         })
                     } else {
 
