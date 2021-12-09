@@ -14,8 +14,7 @@ const url = "http://localhost:80";
 const sql_info = {
     host: "localhost",
     user: "root",
-    password: "485480",
-    database: "2021_OsuKoreanTopPlayer",
+    password: "485480"
 };
 var con = mysql.createConnection(sql_info);
 const compare = {
@@ -36,6 +35,18 @@ const vote_info = [
 ];
 
 con.connect((err) => {
+    con.query(
+        "CREATE DATABASE 2021_OsuKoreanTopPlayer",
+        (err, result) => {
+            if (!err) console.log("success to CREATE DATABASE 2021_OsuKoreanTopPlayer");
+        }
+    );
+    con.query(
+        "USE 2021_OsuKoreanTopPlayer",
+        (err, result) => {
+            if (!err) console.log("success to USE 2021_OsuKoreanTopPlayer");
+        }
+    );
     var temp;
     if (err) console.log(err);
     console.log("Connected DB");
