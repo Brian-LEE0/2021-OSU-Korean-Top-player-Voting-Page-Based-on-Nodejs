@@ -293,6 +293,7 @@ app.post("/submit", (req, res) => {
         const obj = JSON.parse(body);
 		const db = req.body;
 		var c = Object.keys(req.body)
+		console.log(c)
 		var check_num = 0;
 		for(var i = 0; i < c.length; i++){
 			for(var j = i+1; j < c.length ; j++){
@@ -301,7 +302,8 @@ app.post("/submit", (req, res) => {
 				}
 			}
 		}
-        if (req.body.id != obj.id || check_num != 0) {
+		console.log(check_num);
+        if (req.body.id != obj.id || 1) {
             res.status(300)
         } else {
             var submitted_data = req.body;
