@@ -233,7 +233,7 @@
 		   }
 		   
 		   .content {
-				max-height: 200px;
+				height: 200px;
 		   }
             .wrapper {
 				flex-direction: column;

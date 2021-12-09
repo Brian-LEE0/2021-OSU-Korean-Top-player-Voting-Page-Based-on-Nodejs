@@ -12,6 +12,16 @@
         .content-bg {
             background-image: url("img/bg2.jpg");
         }
+		@media screen and (min-width: 600px) and (max-width: 719px) {
+            .btn-wrapper {
+                display: none;
+        }
+        
+        @media screen and (min-width: 375px) and (max-width: 599px) {
+            .btn-wrapper {
+                display: none;
+            }
+        }
     </style>
     <div class="submit-container">
         <a class="submit-btn" action="/submit" method="post"><i class="xi-upload"></i>Submit</a>

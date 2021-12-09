@@ -392,3 +392,62 @@ initalized : 1872936
   inputname: '9_1'
 }
 initalized : 1872936
+initalized : 1872936
+initalized : 1872936
+{ name: 'Heilia 2', inputname: '9_1' }
+{
+  name: 'Heilia 2',
+  img: 'https://a.ppy.sh/1872936?1638201132.jpeg',
+  rank: 1506,
+  id: 1872936,
+  inputname: '9_1'
+}
+initalized : 1872936
+initalized : 1872936
+{ name: 'Heilia2', inputname: '9_1' }
+{ name: 'Heilia 2', inputname: '9_1' }
+{
+  name: 'Heilia 2',
+  img: 'https://a.ppy.sh/1872936?1638201132.jpeg',
+  rank: 1506,
+  id: 1872936,
+  inputname: '9_1'
+}
+initalized : 5979619
+initalized : 5979619
+initalized : 1872936
+{ name: 'Enon', inputname: '10_1' }
+{
+  name: 'Enon',
+  img: 'https://a.ppy.sh/2043401?1634752468.png',
+  rank: 1632,
+  id: 2043401,
+  inputname: '10_1'
+}
+initalized : 1872936
+initalized : 5979619
+initalized : 5979619
+initalized : 2043401
+initalized : 5979619
+{ name: 'nnaisle', inputname: '3_2' }
+{
+  name: 'NNAisle',
+  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
+  rank: 1843,
+  id: 5979619,
+  inputname: '3_2'
+}
+{ name: 'y', inputname: '3_2' }
+{ name: '', inputname: '3_2' }
+{ name: 'startrick', inputname: '3_2' }
+{
+  name: 'Startrick',
+  img: 'https://a.ppy.sh/2782104?1629977936.png',
+  rank: 4666,
+  id: 2782104,
+  inputname: '3_2'
+}
+submit request : 5979619
+DB2 UPDATE SUCCESS : 5979619
+DB2 DELETE SUCEESS : 5979619
+DB UPDATE SUCCESS : 5979619

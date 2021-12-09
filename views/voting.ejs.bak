@@ -176,7 +176,7 @@
 					}
 				}
 				if(check_num != 0){
-					alert("Invalied access!");					
+					alert("Invalid access!");					
 				}else if (!str) {
                     if (confirm("정말로 제출하시겠습니까?\nPlease double check")) {
                         $.ajax({
