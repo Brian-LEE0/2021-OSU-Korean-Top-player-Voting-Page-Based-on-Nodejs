@@ -56,6 +56,15 @@ con.connect((err) => {
             if (!err) console.log("success to make TABLE voter");
         }
     );
+    con.query(
+        "CREATE TABLE vote_result (_index int not null primary key auto increment)",
+        (err, result) => {
+            if (!err) console.log("success to make TABLE vote_result");
+        }
+    );
+    AddRow("vote_result", "voter_id VARCHAR(40) not null");
+    AddRow("vote_result", "candidate_id VARCHAR(40) not null");
+    AddRow("vote_result", "point int not null");
     AddRow("voter", "username VARCHAR(40) not null");
     vote_info.forEach((i, i_index) =>
         i.forEach((j, j_index) => {
@@ -388,4 +397,79 @@ function submit_list(json) {
     } catch (err) {
         return 0;
     }
+}
+submit_list2({
+    username: 'NNAisle',
+    id: '5979619',
+    '10_1': 'FlyingTuna',
+    '10_1_avatar': 'https://a.ppy.sh/9224078?1634967167.png',
+    '10_1_id': '9224078',
+    '9_1': 'Cellina',
+    '9_1_avatar': 'https://a.ppy.sh/2490770?1635621509.jpeg',
+    '9_1_id': '2490770',
+    '8_1': 'Reillia',
+    '8_1_avatar': 'https://a.ppy.sh/4746949?1602753174.jpeg',
+    '8_1_id': '4746949',
+    '8_2': '',
+    '8_2_avatar': '',
+    '8_2_id': '',
+    '7_1': 'Enon',
+    '7_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
+    '7_1_id': '2043401',
+    '7_2': 'Hugofrost',
+    '7_2_avatar': 'https://a.ppy.sh/6896883?1637244010.png',
+    '7_2_id': '6896883',
+    '6_1': 'Startrick',
+    '6_1_avatar': 'https://a.ppy.sh/2782104?1629977936.png',
+    '6_1_id': '2782104',
+    '6_2': '',
+    '6_2_avatar': '',
+    '6_2_id': '',
+    '5_1': 'SweetBloodyLove',
+    '5_1_avatar': 'https://a.ppy.sh/139827?1458683128.jpg',
+    '5_1_id': '139827',
+    '5_2': '',
+    '5_2_avatar': '',
+    '5_2_id': '',
+    '5_3': '',
+    '5_3_avatar': '',
+    '5_3_id': '',
+    '4_1': '[KOR]Rem',
+    '4_1_avatar': 'https://a.ppy.sh/5538115?1615651259.png',
+    '4_1_id': '5538115',
+    '4_2': 'Iroha',
+    '4_2_avatar': 'https://a.ppy.sh/6304387?1624664605.jpeg',
+    '4_2_id': '6304387',
+    '4_3': '',
+    '4_3_avatar': '',
+    '4_3_id': '',
+    '3_1': 'chocomint',
+    '3_1_avatar': 'https://a.ppy.sh/124493?1635998770.png',
+    '3_1_id': '124493',
+    '3_2': '',
+    '3_2_avatar': '',
+    '3_2_id': '',
+    '3_3': '',
+    '3_3_avatar': '',
+    '3_3_id': ''
+})
+
+function submit_list2(json) {
+    var init = "INSERT INTO vote_result (voter_id, candidate_id, point) VALUS ('"
+    vote_info.forEach((i, i_index) => i.forEach((j, j_index) => {
+        if (j) {
+            if (json[String(10 - i_index) + "_" + String(j_index + 1)] != '') {
+                var temp = init;
+                temp += json.id + "','";
+                temp += json[String(10 - i_index) + "_" + String(j_index + 1) + "_id"] + "','"
+                temp += String(10 - i_index) + "')"
+
+            }
+            console.log(temp)
+
+        }
+
+    }))
+
+
 }
