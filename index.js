@@ -5,6 +5,7 @@ const path = require("path");
 const request_prom = require("request-promise");
 const request = require("request");
 const bodyParser = require("body-parser");
+const date = require("date-utils")
 const { cookie } = require("request");
 
 const app = express();
@@ -23,7 +24,7 @@ const compare = {
     MONTH: 05,
     playcount: 5000,
 };
-
+var today = new Date();
 const vote_info = [
     [1, 0, 0],
     [1, 0, 0],
@@ -65,6 +66,7 @@ con.connect((err) => {
     );
     AddRow("vote_result", "voter_id VARCHAR(40) not null");
     AddRow("vote_result", "candidate_id VARCHAR(40) not null");
+	AddRow("vote_result", "candidate_name VARCHAR(40) not null");
     AddRow("vote_result", "point int not null");
     AddRow("voter", "username VARCHAR(40) not null");
     vote_info.forEach((i, i_index) =>
@@ -210,7 +212,8 @@ app.get("/main", (req, res) => {
 });
 
 app.post("/init", (req, res) => {
-    console.log("initalized :", req.body["id"]);
+	today = new Date();
+    console.log("initalized :", req.body["id"], today);
     retrieveDB(res, String(req.body["id"]));
 });
 
@@ -305,7 +308,8 @@ app.post("/submit", (req, res) => {
             res.status(300)
         } else {
             var submitted_data = req.body;
-            console.log("submit request :", req.body.id);
+			today = new Date();
+            console.log("submit request :", req.body.id, today);
             submit_list(req.body);
 			submit_list2(req.body);
             res.json({ mes: "Thank you for Voting", redirect: "/" });
@@ -403,7 +407,8 @@ function submit_list(json) {
                     }
                 );
             } else {
-                console.log("DB UPDATE SUCCESS :", json.id);
+				today = new Date()
+                console.log("DB UPDATE SUCCESS :", json.id, today);
             }
         });
         return 1;
@@ -416,18 +421,22 @@ function submit_list2(json) {
 	con.query("SELECT voter_id FROM vote_result WHERE voter_id = '" + json.id + "'",(err,result)=>{
 		if(result.length){
 			con.query("DELETE FROM vote_result WHERE voter_id = '"+ json.id + "'",(err,result)=>{
-				if(!err) console.log("DB2 DELETE SUCEESS :", json.id)
+				if(!err) {
+					today = new Date()
+					console.log("DB2 DELETE SUCEESS :", json.id, today)
+				}
 			})
 		}
 		var error = 0;
 
-		var init = "INSERT INTO vote_result (voter_id, candidate_id, point) VALUES ('"
+		var init = "INSERT INTO vote_result (voter_id, candidate_id, candidate_name, point) VALUES ('"
 		vote_info.forEach((i, i_index) => i.forEach((j, j_index) => {
 			if (j) {
 				if (json[String(10 - i_index) + "_" + String(j_index + 1)] != '') {
 					var temp = init;
 					temp += json.id + "','";
 					temp += json[String(10 - i_index) + "_" + String(j_index + 1) + "_id"] + "','"
+					temp += json[String(10 - i_index) + "_" + String(j_index + 1)] + "','"
 					temp += String(10 - i_index) + "')"
 					con.query(temp,(err,result)=>{
 						if(err) error++;
@@ -437,6 +446,9 @@ function submit_list2(json) {
 			}
 
 		}))
-		if(!error)console.log("DB2 UPDATE SUCCESS :", json.id);
+		if(!error){
+			today = new Date()
+			console.log("DB2 UPDATE SUCCESS :", json.id, today);
+		}
 	})
 }

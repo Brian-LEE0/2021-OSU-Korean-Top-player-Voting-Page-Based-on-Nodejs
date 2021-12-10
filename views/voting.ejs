@@ -50,7 +50,7 @@
                                 <tr>
                                     <td rowspan="2"><img style="width: 64px; height: 64px;" class=<%=(String(10 - i) + "_" + String(j + 1) + "_img" )%> src="/img/placeholder.jpg"></td>
 
-                                    <input placeholder="<%= (j==0) ? " Click here and type to vote your best player (Required, 필수) " : " Click here and type to vote your best player " %>" class="pname" type="text" name=<%=(String(10 - i) + "_" + String(j + 1) + "_text" )%>                                    required size="10">
+                                    <input placeholder="<%= (j==0) ? "Click here and type to vote your best player (Required, 필수)" : "Click here and type to vote your best player" %>" class=<%=String(10 - i) + "_" + String(j + 1) %> type="text" name=<%=(String(10 - i) + "_" + String(j + 1) + "_text" )%>                                    required size="10">
                                     <!-- <a class="<%=String(10 - i) + "_" + String(j + 1) %> btn search-btn">SEARCH</a> -->
 
                                     <!-- <td><span style="color: white;" class=<%=(String(10 - i) + "_" + String(j + 1) + "_name" )%>> -->
@@ -68,7 +68,7 @@
                                         <%=String(10 - i) + "_" + String(j + 1) %>
                                     </p> -->
                         <div class="input_wrap">
-                            <!-- <input class="pname" type="text" name=<%=(String(10 - i) + "_" + String(j + 1) + "_text" )%> required size="10"> -->
+                            <!-- <input class=<%=String(10 - i) + "_" + String(j + 1) %> type="text" name=<%=(String(10 - i) + "_" + String(j + 1) + "_text" )%> required size="10"> -->
                             <!-- <a class="<%=String(10 - i) + "_" + String(j + 1) %> btn search-btn">SEARCH</a> -->
                         </div>
                         <!-- <form class=<%=String(10 - i) + "_" + String(j + 1) + "_form" %> action="/main" method="POST">
@@ -133,17 +133,18 @@
             }
         }))
 
-        function delay(callback, ms) {
-            var timer = 0;
-            return function() {
-                var context = this,
-                    args = arguments;
-                clearTimeout(timer);
-                timer = setTimeout(function() {
-                    callback.apply(context, args);
-                }, ms || 0);
-            };
-        }
+        
+		function delay(callback, ms) {
+			var timer = 0;
+			return function() {
+				var context = this,
+					args = arguments;
+				clearTimeout(timer);
+				timer = setTimeout(function() {
+					callback.apply(context, args);
+				}, ms || 0);
+			};
+		}
 
         $(document).ready(function() {
 
@@ -209,68 +210,68 @@
                     alert(str);
                 }
             })
+			
+			vote_info.forEach((i,i_index) => i.forEach((j,j_index)=>{
+				console.log(j[0],j[1])
+				$('.'+j[0]+'_'+j[1]).on('keyup', delay(function() {
+						var sname = $(this).val();
+						inputname = $(this).attr('name');
+						inputname = inputname.replace('_text', '');
+						image = "." + inputname + "_img";
+						rank = "." + inputname + "_rank";
+						var data = {
+							name: sname,
+							inputname: inputname
+						};
+						if (!sname.length) {
+							db[inputname] = null;
+							db[inputname + "_avatar"] = null;
+							db[inputname + "_id"] = null;
+							$(image).attr('src', "/img/placeholder.jpg");
+							$(rank).text(null);
+						}
+						$.ajax({
+							url: '/main',
+							type: 'post',
+							data: data,
+							success: function(json) {
+								if (json.name != "") {
+									var compare = isDuplicated(db, json.id, json.inputname + "_id");
 
-            $('.pname').on('keyup', delay(function() {
-                var sname = $(this).val();
-                inputname = $(this).attr('name');
-                inputname = inputname.replace('_text', '');
-                image = "." + inputname + "_img";
-                rank = "." + inputname + "_rank";
-                var data = {
-                    name: sname,
-                    inputname: inputname
-                };
+									name = json.inputname + "_text";
+									if (!compare) {
+										image = "." + json.inputname + "_img";
+										rank = "." + json.inputname + "_rank";
+										db[json.inputname] = json.name;
+										db[json.inputname + "_id"] = String(json.id);
+										db[json.inputname + "_avatar"] = json.img;
+										$('input[name=' + name + ']').val(db[json.inputname]);
+										$(image).attr('src', db[json.inputname + "_avatar"]);
+										$(rank).text(json.rank.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
 
+									} else if (compare == -1) {
+										var input = $('input[name=' + name + ']')
+										input.attr("placeholder", "You can't vote for yourself")
+										input.val("");
+										return setTimeout(() => {
+											if (Number(name.split('_')[1]) == 1) input.attr("placeholder", "Click here and type to vote your best player (Required, 필수)")
+											else input.attr("placeholder", "Click here and type to vote your best player")
+										}, 3000);;
 
-                if (!sname.length) {
-                    db[inputname] = null;
-                    db[inputname + "_avatar"] = null;
-                    db[inputname + "_id"] = null;
-                    $(image).attr('src', "/img/placeholder.jpg");
-                    $(rank).text(null);
-                }
-
-                $.ajax({
-                    url: '/main',
-                    type: 'post',
-                    data: data,
-                    success: function(json) {
-                        if (json.name != "") {
-                            var compare = isDuplicated(db, json.id, json.inputname + "_id");
-
-                            name = json.inputname + "_text";
-                            if (!compare) {
-                                image = "." + json.inputname + "_img";
-                                rank = "." + json.inputname + "_rank";
-                                db[json.inputname] = json.name;
-                                db[json.inputname + "_id"] = String(json.id);
-                                db[json.inputname + "_avatar"] = json.img;
-                                $('input[name=' + name + ']').val(db[json.inputname]);
-                                $(image).attr('src', db[json.inputname + "_avatar"]);
-                                $(rank).text(json.rank.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
-
-                            } else if (compare == -1) {
-                                var input = $('input[name=' + name + ']')
-                                input.attr("placeholder", "You can't vote for yourself")
-                                input.val("");
-                                return setTimeout(() => {
-                                    if (Number(name.split('_')[1]) == 1) input.attr("placeholder", "Click here and type to vote your best player (Required, 필수)")
-                                    else input.attr("placeholder", "Click here and type to vote your best player")
-                                }, 3000);;
-
-                            } else if (compare == -2) {
-                                var input = $('input[name=' + name + ']')
-                                input.attr("placeholder", "You can't vote for the same user")
-                                input.val("");
-                                return setTimeout(() => {
-                                    if (Number(name.split('_')[1]) == 0) input.attr("placeholder", "Click here and type to vote your best player (Required, 필수)")
-                                    else input.attr("placeholder", "Click here and type to vote your best player")
-                                }, 3000);;
-                            }
-                        }
-                    }
-                })
-            }, 400));
+									} else if (compare == -2) {
+										var input = $('input[name=' + name + ']')
+										input.attr("placeholder", "You can't vote for the same user")
+										input.val("");
+										return setTimeout(() => {
+											if (Number(name.split('_')[1]) == 0) input.attr("placeholder", "Click here and type to vote your best player (Required, 필수)")
+											else input.attr("placeholder", "Click here and type to vote your best player")
+										}, 3000);;
+									}
+								}
+							}
+						})
+					}, 500))
+			}))
 
 
             $('.reset').on('click', () => {
