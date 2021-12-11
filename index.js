@@ -5,8 +5,7 @@ const path = require("path");
 const request_prom = require("request-promise");
 const request = require("request");
 const bodyParser = require("body-parser");
-const date = require("date-utils")
-const { cookie } = require("request");
+const date = require("date-utils");
 
 const app = express();
 
@@ -175,7 +174,12 @@ app.get("/main", (req, res) => {
             headers: headers,
         };
         request(options, function(error, response, body) {
-            const obj = JSON.parse(body);
+			var obj;
+			try{
+				obj = JSON.parse(body);
+			}catch(e){
+				console.log("ERROR at main req");
+			}
 			try{
 				const join_date = obj.join_date.split("T")[0].split("-");
             if (obj.statistics.play_count < compare.playcount) {
@@ -203,6 +207,7 @@ app.get("/main", (req, res) => {
                 res.render("voting.ejs", params);
             }
 			}catch(err){
+				console.log(err)
 				res.send("<script>alert('서버에러! 재접속 부탁드립니다!');location.href='/';</script>");
 			}
         });
@@ -243,7 +248,11 @@ app.post("/main", (req, res) => {
         },
         function(error2, response2, body2) {
             var json = {};
-            var Jbody = JSON.parse(body2);
+			try{
+				var Jbody = JSON.parse(body2);
+			}catch(e){
+				console.log("ERROR at main post");
+			}
             try {
                 if (
                     Jbody["username"] == "undefined" ||
@@ -293,7 +302,9 @@ app.post("/submit", (req, res) => {
         headers: headers,
     };
     request(options, function(error, response, body) {
-        const obj = JSON.parse(body);
+		try{
+		const obj = JSON.parse(body);
+		
 		const db = req.body;
 		var c = Object.keys(req.body)
 		var check_num = 0;
@@ -312,10 +323,14 @@ app.post("/submit", (req, res) => {
             console.log("submit request :", req.body.id, today);
             submit_list(req.body);
 			submit_list2(req.body);
-            res.json({ mes: "Thank you for Voting", redirect: "/" });
+            res.json({ mes: "Your vote has been successfully submitted. Thank you for participating!", redirect: "/" });
         }
+		}catch(e){
+		console.log("ERROR at submit");
+		}
 
     })
+	
 
 });
 
@@ -323,7 +338,11 @@ function retrieveDB(res, id) {
     var db_out = {};
     con.query("SELECT * FROM voter WHERE id = '" + id + "'", (err, result) => {
         if (result.length) {
+			try{
             res.json(JSON.parse(JSON.stringify(result[0])));
+			}catch(e){
+				
+			}
         }
     })
 }

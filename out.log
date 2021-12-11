@@ -2,56 +2,480 @@ Server is running on port : 80
 url : http://oktp.shop
 Connected DB
 success to USE 2021_OsuKoreanTopPlayer
-initalized : 1872936
-initalized : 8991722
-{ name: 'Suyong', inputname: '6_1' }
+{ name: 'karuna', inputname: '4_1' }
 {
-  name: 'suyong',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 3714437,
-  inputname: '6_1'
+  name: 'Karuna',
+  img: 'https://a.ppy.sh/8775024?1634977011.png',
+  rank: 199,
+  id: 8775024,
+  inputname: '4_1'
 }
-{ name: 'Suyong_', inputname: '6_1' }
+{ name: 'doomsday', inputname: '3_1' }
+{ name: 'doomsday fanboy', inputname: '3_1' }
 {
-  name: 'Suyong_',
-  img: 'https://a.ppy.sh/8799923?1639065681.jpeg',
-  rank: 276,
-  id: 8799923,
-  inputname: '6_1'
+  name: 'Doomsday fanboy',
+  img: 'https://a.ppy.sh/4511522?1634956969.png',
+  rank: 236,
+  id: 4511522,
+  inputname: '3_1'
 }
-submit request : 1872936
-DB2 UPDATE SUCCESS : 1872936
-DB2 DELETE SUCEESS : 1872936
-DB UPDATE SUCCESS : 1872936
-initalized : 1872936
-initalized : 2043401
-initalized : 2043401
-{ name: 'gusrua123', inputname: '6_2' }
+{ name: 'jot_bab', inputname: '6_2' }
 {
-  name: 'gusrua123',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: 364,
-  id: 1336437,
+  name: 'jot_bab',
+  img: 'https://a.ppy.sh/2768421?1612135715.png',
+  rank: 172,
+  id: 2768421,
   inputname: '6_2'
 }
-{ name: '', inputname: '6_2' }
-{ name: 'initk', inputname: '6_2' }
+{ name: '', inputname: '7_1' }
+{ name: '개새끼', inputname: '3_2' }
+ERROR at main post
+{ name: 'https://osu.ppy.sh/users/14106450/osu', inputname: '7_1' }
+{ name: 'https://osu.ppy.sh/users/14106450', inputname: '7_1' }
+{ name: '', inputname: '3_2' }
+{ name: '', inputname: '3_2' }
+{ name: '/14106450', inputname: '7_1' }
+{ name: '14106450', inputname: '7_1' }
 {
-  name: 'Initk',
-  img: 'https://a.ppy.sh/13767035?1584532488.jpeg',
-  rank: 749,
-  id: 13767035,
+  name: 'worst hr player',
+  img: 'https://a.ppy.sh/14106450?1623236440.jpeg',
+  rank: 267,
+  id: 14106450,
+  inputname: '7_1'
+}
+{ name: 'ㅂ쟃ㄷ부ㅐㅂ뒈ㅞ', inputname: '3_2' }
+ERROR at main post
+{ name: 'ㅊㄷㅂㅊ붿ㅂ추ㅑㅂ뒈', inputname: '3_2' }
+ERROR at main post
+{ name: '', inputname: '3_2' }
+{ name: 'ㅊㄷ베ㅜㅊㅂ댜ㅔㅜㅂ데ㅑㅊ', inputname: '3_2' }
+ERROR at main post
+{ name: '', inputname: '3_2' }
+{ name: 'ㅂㄷㄼㄷㄼㄷㄹ', inputname: '3_2' }
+ERROR at main post
+{ name: '4133758', inputname: '6_1' }
+{
+  name: 'Nameless Player',
+  img: 'https://a.ppy.sh/4133758?1564376693.png',
+  rank: 116,
+  id: 4133758,
+  inputname: '6_1'
+}
+{ name: 'j2768421', inputname: '6_2' }
+{ name: '2768421', inputname: '6_2' }
+{
+  name: 'jot_bab',
+  img: 'https://a.ppy.sh/2768421?1612135715.png',
+  rank: 172,
+  id: 2768421,
   inputname: '6_2'
 }
-{ name: 'gusrua', inputname: '5_1' }
+{ name: '7892320', inputname: '5_1' }
 {
-  name: 'gusrua',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 3662468,
+  name: 'Zeisen-',
+  img: 'https://a.ppy.sh/7892320?1634983468.png',
+  rank: 64,
+  id: 7892320,
   inputname: '5_1'
 }
+{ name: '', inputname: '5_2' }
+{ name: '4585186', inputname: '3_2' }
+{
+  name: 'Nopekjk',
+  img: 'https://a.ppy.sh/4585186?1634940664.png',
+  rank: 1806,
+  id: 4585186,
+  inputname: '3_2'
+}
+submit request : 16368505 2021-12-10T18:05:01.172Z
+DB UPDATE SUCCESS : 16368505 2021-12-10T18:05:01.771Z
+DB2 UPDATE SUCCESS : 16368505 2021-12-10T18:05:01.859Z
+{ name: '', inputname: '3_2' }
+Server is running on port : 80
+url : http://oktp.shop
+Connected DB
+success to USE 2021_OsuKoreanTopPlayer
+Server is running on port : 80
+url : http://oktp.shop
+Connected DB
+success to USE 2021_OsuKoreanTopPlayer
+ReferenceError: obj is not defined
+    at Request._callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\index.js:184:23)
+    at Request.self.callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:185:22)
+    at Request.emit (node:events:390:28)
+    at Request.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1154:10)
+    at Request.emit (node:events:390:28)
+    at IncomingMessage.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (node:events:509:28)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+ReferenceError: obj is not defined
+    at Request._callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\index.js:184:23)
+    at Request.self.callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:185:22)
+    at Request.emit (node:events:390:28)
+    at Request.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1154:10)
+    at Request.emit (node:events:390:28)
+    at IncomingMessage.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (node:events:509:28)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+ReferenceError: obj is not defined
+    at Request._callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\index.js:184:23)
+    at Request.self.callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:185:22)
+    at Request.emit (node:events:390:28)
+    at Request.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1154:10)
+    at Request.emit (node:events:390:28)
+    at IncomingMessage.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (node:events:509:28)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+Server is running on port : 80
+url : http://oktp.shop
+Connected DB
+success to USE 2021_OsuKoreanTopPlayer
+initalized : 5979619 2021-12-10T18:10:27.320Z
+initalized : 2043401 2021-12-10T18:10:34.528Z
+{ name: '', inputname: '7_2' }
+{ name: '감가', inputname: '7_2' }
+ERROR at main post
+{ name: '감가ㅐㅂ듀ㅜㅊ', inputname: '7_2' }
+ERROR at main post
+{ name: '베두베퍄둡댜', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅂㄷ푸ㅑㅂ댜ㅔ푸베ㅑ', inputname: '7_2' }
+ERROR at main post
+{ name: '', inputname: '3_1' }
+{ name: '베두퍕', inputname: '7_2' }
+ERROR at main post
+{ name: '', inputname: '7_2' }
+{ name: 'ㅎㅇ', inputname: '3_1' }
+ERROR at main post
+{ name: 'ㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇ', inputname: '3_1' }
+ERROR at main post
+{ name: 'ㅂㅈㄼㅈㄼㅈㄹㄷㅂㄼㄷㄼㄷㄹ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅍㅂㄷㅍㅂㄷㅍㅂㄷㅍㅂㄷㅍㅂㄷㅍㅂㄷ', inputname: '7_2' }
+ERROR at main post
+{ name: '', inputname: '7_2' }
+{ name: 'ㅂㅈㅇㅁㄴㅇㅁㅈㅇㅈㅁㅇ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁㅊ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁㅈㅊㅇㅁㅈㅊ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁㅊㅈㅇㅁㅈㅊㅁㅇㅈ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁㅈㅊ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁㅈㅊㅇ', inputname: '7_2' }
+ERROR at main post
+{ name: '', inputname: '7_2' }
+{ name: 'ㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇ', inputname: '3_1' }
+ERROR at main post
+{ name: 'ㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇ', inputname: '3_1' }
+ERROR at main post
+initalized : 2043401 2021-12-10T18:11:32.631Z
+{ name: '12ㄷ1ㄷ', inputname: '7_2' }
+ERROR at main post
+{ name: '131231', inputname: '7_2' }
+initalized : 2043401 2021-12-10T18:11:53.223Z
+{ name: '', inputname: '7_2' }
+{ name: '1ㅂㅈ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁ', inputname: '7_2' }
+ERROR at main post
+{ name: 'ㅁㅈㅇㅁㅈㅇㅈㅇㅁ', inputname: '7_2' }
+ERROR at main post
+{ name: '', inputname: '7_2' }
+{ name: 'ㅁㄴㅇㅁㅇㅁㄴㅇㅁㄴㅇㅁㅇ', inputname: '7_2' }
+ERROR at main post
+{ name: '', inputname: '7_2' }
+{ name: 'c', inputname: '3_2' }
+{ name: 'cookiezi', inputname: '3_2' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '3_2'
+}
+{ name: '', inputname: '3_2' }
+initalized : 1843224 2021-12-10T18:13:52.824Z
+{ name: 'flyung', inputname: '10_1' }
+{ name: 'fly', inputname: '10_1' }
+{
+  name: 'Fly',
+  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
+  rank: null,
+  id: 1095738,
+  inputname: '10_1'
+}
+{ name: 'Flyng', inputname: '10_1' }
+{ name: 'Fl', inputname: '10_1' }
+initalized : 4585186 2021-12-10T18:14:12.283Z
+{ name: 'flyingtuna', inputname: '10_1' }
+{
+  name: 'FlyingTuna',
+  img: 'https://a.ppy.sh/9224078?1634967167.png',
+  rank: 13,
+  id: 9224078,
+  inputname: '10_1'
+}
+{ name: '[', inputname: '9_1' }
+{ name: '[karcher]', inputname: '9_1' }
+{
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '9_1'
+}
+{ name: 'Flying', inputname: '10_1' }
+{ name: 'FlyingTuna', inputname: '10_1' }
+{ name: 'Doomsday fanboy', inputname: '8_1' }
+{
+  name: 'FlyingTuna',
+  img: 'https://a.ppy.sh/9224078?1634967167.png',
+  rank: 13,
+  id: 9224078,
+  inputname: '10_1'
+}
+{
+  name: 'Doomsday fanboy',
+  img: 'https://a.ppy.sh/4511522?1634956969.png',
+  rank: 236,
+  id: 4511522,
+  inputname: '8_1'
+}
+{ name: '[', inputname: '9_1' }
+{ name: '[Karcher', inputname: '9_1' }
+{ name: '[Karcher]', inputname: '9_1' }
+{
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '9_1'
+}
+{ name: 'Karuna', inputname: '8_1' }
+{
+  name: 'Karuna',
+  img: 'https://a.ppy.sh/8775024?1634977011.png',
+  rank: 199,
+  id: 8775024,
+  inputname: '8_1'
+}
+{ name: 'Doomsday ', inputname: '8_2' }
+{ name: 'Doomsday Fanboy', inputname: '8_2' }
+{
+  name: 'Doomsday fanboy',
+  img: 'https://a.ppy.sh/4511522?1634956969.png',
+  rank: 236,
+  id: 4511522,
+  inputname: '8_2'
+}
+{ name: 'worst ', inputname: '7_1' }
+{ name: 'worst hr player', inputname: '7_1' }
+{
+  name: 'worst hr player',
+  img: 'https://a.ppy.sh/14106450?1623236440.jpeg',
+  rank: 267,
+  id: 14106450,
+  inputname: '7_1'
+}
+{ name: 'Zeisen', inputname: '7_2' }
+{
+  name: 'Zeisen',
+  img: 'https://a.ppy.sh/1041943?1635795017.png',
+  rank: 312,
+  id: 1041943,
+  inputname: '7_2'
+}
+{ name: 'Zeisen-', inputname: '7_2' }
+{
+  name: 'Zeisen-',
+  img: 'https://a.ppy.sh/7892320?1634983468.png',
+  rank: 64,
+  id: 7892320,
+  inputname: '7_2'
+}
+{ name: 'Rank', inputname: '6_1' }
+{
+  name: 'Rank',
+  img: 'https://a.ppy.sh/2160912?1366553358.png',
+  rank: 91870,
+  id: 2160912,
+  inputname: '6_1'
+}
+{ name: 'Ranke', inputname: '6_1' }
+{ name: 'Rank', inputname: '6_1' }
+initalized : 5979619 2021-12-10T18:17:12.875Z
+{
+  name: 'Rank',
+  img: 'https://a.ppy.sh/2160912?1366553358.png',
+  rank: 91870,
+  id: 2160912,
+  inputname: '6_1'
+}
+{ name: 'Ranke', inputname: '6_1' }
+{ name: 'Rank', inputname: '6_1' }
+{
+  name: 'Rank',
+  img: 'https://a.ppy.sh/2160912?1366553358.png',
+  rank: 91870,
+  id: 2160912,
+  inputname: '6_1'
+}
+{ name: 'Rank', inputname: '6_1' }
+{
+  name: 'Rank',
+  img: 'https://a.ppy.sh/2160912?1366553358.png',
+  rank: 91870,
+  id: 2160912,
+  inputname: '6_1'
+}
+{ name: '', inputname: '6_1' }
+{ name: '', inputname: '6_1' }
+{ name: 'Rqnkaja', inputname: '6_1' }
+{ name: 'Rqnkajae', inputname: '6_1' }
+{ name: 'Rankajae', inputname: '6_1' }
+{
+  name: 'RankAjae',
+  img: 'https://a.ppy.sh/12137295?1638518389.jpeg',
+  rank: 112,
+  id: 12137295,
+  inputname: '6_1'
+}
+{ name: 'maiaz', inputname: '6_2' }
+{
+  name: 'Maiaz',
+  img: 'https://a.ppy.sh/6916642?1634980132.png',
+  rank: 429,
+  id: 6916642,
+  inputname: '6_2'
+}
+{ name: 'Ma', inputname: '7_2' }
+{ name: 'Maiaz', inputname: '7_2' }
+{
+  name: 'Maiaz',
+  img: 'https://a.ppy.sh/6916642?1634980132.png',
+  rank: 429,
+  id: 6916642,
+  inputname: '7_2'
+}
+{ name: '', inputname: '6_2' }
+{ name: 'Z', inputname: '6_2' }
+{ name: 'Zeisen', inputname: '6_2' }
+{
+  name: 'Zeisen',
+  img: 'https://a.ppy.sh/1041943?1635795017.png',
+  rank: 312,
+  id: 1041943,
+  inputname: '6_2'
+}
+{ name: 'Zeisen', inputname: '6_2' }
+{
+  name: 'Zeisen',
+  img: 'https://a.ppy.sh/1041943?1635795017.png',
+  rank: 312,
+  id: 1041943,
+  inputname: '6_2'
+}
+{ name: 'Rank', inputname: '7_2' }
+{
+  name: 'Rank',
+  img: 'https://a.ppy.sh/2160912?1366553358.png',
+  rank: 91870,
+  id: 2160912,
+  inputname: '7_2'
+}
+{ name: '', inputname: '7_2' }
+{ name: 'Rankajae', inputname: '7_2' }
+{
+  name: 'RankAjae',
+  img: 'https://a.ppy.sh/12137295?1638518389.jpeg',
+  rank: 112,
+  id: 12137295,
+  inputname: '7_2'
+}
+{ name: 'Zeisen-', inputname: '6_2' }
+{
+  name: 'Zeisen-',
+  img: 'https://a.ppy.sh/7892320?1634983468.png',
+  rank: 64,
+  id: 7892320,
+  inputname: '6_2'
+}
+initalized : 5979619 2021-12-10T18:18:07.988Z
+{ name: 'Maiaz', inputname: '7_2' }
+{
+  name: 'Maiaz',
+  img: 'https://a.ppy.sh/6916642?1634980132.png',
+  rank: 429,
+  id: 6916642,
+  inputname: '7_2'
+}
+Server is running on port : 80
+url : http://oktp.shop
+Connected DB
+success to USE 2021_OsuKoreanTopPlayer
+initalized : 4585186 2021-12-10T18:18:38.678Z
+initalized : 1843224 2021-12-10T18:18:57.530Z
+initalized : 5979619 2021-12-10T18:18:59.345Z
+{ voter: 'NNAisle', name: 'nnaisle', inputname: '9_1' }
+{
+  name: 'NNAisle',
+  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
+  rank: 1846,
+  id: 5979619,
+  inputname: '9_1'
+}
+{ voter: 'NNAisle', name: 'chocomint', inputname: '10_1' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '10_1'
+}
+{ voter: 'NNAisle', name: 'FlyingTuna', inputname: '9_1' }
+{
+  name: 'FlyingTuna',
+  img: 'https://a.ppy.sh/9224078?1634967167.png',
+  rank: 13,
+  id: 9224078,
+  inputname: '9_1'
+}
+submit request : 5979619 2021-12-10T18:19:38.088Z
+DB2 UPDATE SUCCESS : 5979619 2021-12-10T18:19:38.219Z
+DB2 DELETE SUCEESS : 5979619 2021-12-10T18:19:38.527Z
+DB UPDATE SUCCESS : 5979619 2021-12-10T18:19:39.372Z
+initalized : 5979619 2021-12-10T18:19:57.757Z
+initalized : 5979619 2021-12-10T18:20:53.112Z
+{ voter: 'NNAisle', name: 'ㅐㅈㄷ루ㅐㄹㅈ두ㅐㄷ져루', inputname: '3_2' }
+ERROR at main post
+{ voter: 'NNAisle', name: '', inputname: '3_3' }
+{ voter: 'NNAisle', name: 'ㅂㅇㅈㅁㅇㅁㅈㅇㅁㅈ', inputname: '3_2' }
+ERROR at main post
+{ voter: 'NNAisle', name: 'ㅂㅇㅂㅇㅂㅂㅇㅇ', inputname: '3_2' }
+ERROR at main post
+{ voter: 'NNAisle', name: '', inputname: '3_2' }
+{ name: 'T A K A ', inputname: '5_1' }
+{ name: 'T A K A O', inputname: '5_1' }
+{
+  name: 'T A K A O',
+  img: 'https://a.ppy.sh/1334384?1638221002.png',
+  rank: 159,
+  id: 1334384,
+  inputname: '5_1'
+}
+{ name: '', inputname: '5_1' }
+{ name: 'gusr', inputname: '5_1' }
 { name: 'gusrua', inputname: '5_1' }
 {
   name: 'gusrua',
@@ -68,634 +492,81 @@ initalized : 2043401
   id: 1336437,
   inputname: '5_1'
 }
-{ name: 'Rankajae', inputname: '5_2' }
+{ name: 'Nameless ', inputname: '4_1' }
+{ name: 'Nameless Player', inputname: '4_1' }
 {
-  name: 'RankAjae',
-  img: 'https://a.ppy.sh/12137295?1638518389.jpeg',
-  rank: 112,
-  id: 12137295,
-  inputname: '5_2'
-}
-{ name: 'Zeisen-', inputname: '5_3' }
-{
-  name: 'Zeisen-',
-  img: 'https://a.ppy.sh/7892320?1634983468.png',
-  rank: 64,
-  id: 7892320,
-  inputname: '5_3'
-}
-{ name: 'Maiqz', inputname: '5_2' }
-{ name: 'Maiaz', inputname: '5_2' }
-{
-  name: 'Maiaz',
-  img: 'https://a.ppy.sh/6916642?1634980132.png',
-  rank: 428,
-  id: 6916642,
-  inputname: '5_2'
-}
-{ name: '', inputname: '5_3' }
-{ name: '_', inputname: '5_3' }
-{ name: '_suyonf', inputname: '5_3' }
-{ name: '_suyong', inputname: '5_3' }
-{
-  name: '_Suyong',
-  img: 'https://a.ppy.sh/7295276?1637796609.jpeg',
-  rank: 11531,
-  id: 7295276,
-  inputname: '5_3'
-}
-{ name: 'Rankaja', inputname: '4_1' }
-{ name: 'Rankajae', inputname: '4_1' }
-{
-  name: 'RankAjae',
-  img: 'https://a.ppy.sh/12137295?1638518389.jpeg',
-  rank: 112,
-  id: 12137295,
+  name: 'Nameless Player',
+  img: 'https://a.ppy.sh/4133758?1564376693.png',
+  rank: 116,
+  id: 4133758,
   inputname: '4_1'
 }
-{ name: 'Zeisen-', inputname: '4_2' }
-{
-  name: 'Zeisen-',
-  img: 'https://a.ppy.sh/7892320?1634983468.png',
-  rank: 64,
-  id: 7892320,
-  inputname: '4_2'
-}
-{ name: 'Chocomint', inputname: '4_3' }
-{
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
-  inputname: '4_3'
-}
-{ name: '', inputname: '4_2' }
-{ name: 'Jeong woo yeong', inputname: '4_2' }
-{
-  name: 'Jeong Woo Yeong',
-  img: 'https://a.ppy.sh/8359561?1639011410.jpeg',
-  rank: 101,
-  id: 8359561,
-  inputname: '4_2'
-}
-{ name: '²', inputname: '3_1' }
-{ name: '', inputname: '3_1' }
-{ name: 'po', inputname: '3_1' }
-{ name: 'post', inputname: '3_1' }
-{ name: 'postsc', inputname: '3_1' }
-{ name: 'postscr1pt', inputname: '3_1' }
-{
-  name: 'PostScr1pt',
-  img: 'https://a.ppy.sh/3410997?1638659233.jpeg',
-  rank: 11436,
-  id: 3410997,
-  inputname: '3_1'
-}
-{ name: '', inputname: '5_3' }
-{ name: 'Chocominy', inputname: '5_3' }
-{ name: 'Chocomint', inputname: '5_3' }
-{
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
-  inputname: '5_3'
-}
-{ name: '', inputname: '4_3' }
-{ name: '_', inputname: '4_3' }
-{ name: '_s', inputname: '4_3' }
-{ name: '_suyong', inputname: '4_3' }
-{
-  name: '_Suyong',
-  img: 'https://a.ppy.sh/7295276?1637796609.jpeg',
-  rank: 11531,
-  id: 7295276,
-  inputname: '4_3'
-}
-{ name: 'Choc', inputname: '5_3' }
-{ name: 'Chocomint', inputname: '5_3' }
-{
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
-  inputname: '5_3'
-}
-{ name: 'Allegrissimo', inputname: '3_1' }
-{
-  name: 'Allegrissimo',
-  img: 'https://a.ppy.sh/9052194?1635348418.png',
-  rank: 607,
-  id: 9052194,
-  inputname: '3_1'
-}
-{ name: 'Allegrissimoa', inputname: '3_1' }
-{ name: 'Allegrissimo', inputname: '3_1' }
-{
-  name: 'Allegrissimo',
-  img: 'https://a.ppy.sh/9052194?1635348418.png',
-  rank: 607,
-  id: 9052194,
-  inputname: '3_1'
-}
-{ name: 'Anze', inputname: '3_2' }
-{
-  name: 'Anze',
-  img: 'https://a.ppy.sh/1545563?1637146159.png',
-  rank: 430,
-  id: 1545563,
-  inputname: '3_2'
-}
-{ name: '_S', inputname: '4_3' }
-{ name: '', inputname: '4_3' }
-{ name: '', inputname: '3_2' }
-{ name: 'Anze', inputname: '4_3' }
-{
-  name: 'Anze',
-  img: 'https://a.ppy.sh/1545563?1637146159.png',
-  rank: 430,
-  id: 1545563,
-  inputname: '4_3'
-}
-{ name: '_', inputname: '3_2' }
-{ name: '_suyong', inputname: '3_2' }
-{
-  name: '_Suyong',
-  img: 'https://a.ppy.sh/7295276?1637796609.jpeg',
-  rank: 11531,
-  id: 7295276,
-  inputname: '3_2'
-}
-{ name: 'Jeong Woo Yeon', inputname: '4_2' }
-{ name: '', inputname: '4_2' }
-{ name: 'T a k a o', inputname: '4_2' }
+{ name: 'T A K ', inputname: '3_1' }
+{ name: 'T A K A O', inputname: '3_1' }
 {
   name: 'T A K A O',
   img: 'https://a.ppy.sh/1334384?1638221002.png',
   rank: 159,
   id: 1334384,
-  inputname: '4_2'
-}
-{ name: 'Zeisen-', inputname: '3_3' }
-{
-  name: 'Zeisen-',
-  img: 'https://a.ppy.sh/7892320?1634983468.png',
-  rank: 64,
-  id: 7892320,
-  inputname: '3_3'
-}
-initalized : 2043401
-{ name: '', inputname: '7_2' }
-{ name: 'Doomsday fanbo', inputname: '8_2' }
-{ name: '', inputname: '8_2' }
-{ name: 'worst hr player', inputname: '8_2' }
-{
-  name: 'worst hr player',
-  img: 'https://a.ppy.sh/14106450?1623236440.jpeg',
-  rank: 267,
-  id: 14106450,
-  inputname: '8_2'
-}
-{ name: 'Doom', inputname: '7_2' }
-{ name: 'Doomsday fanboy', inputname: '7_2' }
-initalized : 1872936
-{
-  name: 'Doomsday fanboy',
-  img: 'https://a.ppy.sh/4511522?1634956969.png',
-  rank: 236,
-  id: 4511522,
-  inputname: '7_2'
-}
-submit request : 1872936
-DB2 UPDATE SUCCESS : 1872936
-DB2 DELETE SUCEESS : 1872936
-DB UPDATE SUCCESS : 1872936
-initalized : 1872936
-initalized : 2043401
-{ name: 'Nopekjk', inputname: '8_1' }
-{
-  name: 'Nopekjk',
-  img: 'https://a.ppy.sh/4585186?1634940664.png',
-  rank: 1808,
-  id: 4585186,
-  inputname: '8_1'
-}
-{ name: '', inputname: '3_3' }
-{ name: 'NN', inputname: '3_3' }
-{ name: 'NNa', inputname: '3_3' }
-{ name: 'NNaisle', inputname: '3_3' }
-{
-  name: 'NNAisle',
-  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
-  rank: 1843,
-  id: 5979619,
-  inputname: '3_3'
-}
-{ name: '', inputname: '3_3' }
-{ name: 'KRZY', inputname: '3_3' }
-{
-  name: 'KRZY',
-  img: 'https://a.ppy.sh/114017?1531853283.jpeg',
-  rank: 9818,
-  id: 114017,
-  inputname: '3_3'
-}
-submit request : 2043401
-DB2 UPDATE SUCCESS : 2043401
-DB2 DELETE SUCEESS : 2043401
-DB UPDATE SUCCESS : 2043401
-initalized : 2043401
-submit request : 1872936
-DB2 UPDATE SUCCESS : 1872936
-DB2 DELETE SUCEESS : 1872936
-DB UPDATE SUCCESS : 1872936
-submit request : 1872936
-DB2 UPDATE SUCCESS : 1872936
-DB2 DELETE SUCEESS : 1872936
-DB UPDATE SUCCESS : 1872936
-initalized : 1872936
-submit request : 8991722
-DB UPDATE SUCCESS : 8991722
-DB2 UPDATE SUCCESS : 8991722
-{ name: '', inputname: '4_3' }
-{ name: 'yaong', inputname: '4_3' }
-{
-  name: 'Yaong',
-  img: 'https://a.ppy.sh/1883865?1619776559.png',
-  rank: null,
-  id: 1883865,
-  inputname: '4_3'
-}
-{
-  id: '1872936',
-  username: 'Heilia 2',
-  '10_1': 'Enon',
-  '10_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '10_1_id': '2043401',
-  '9_1': 'Enon',
-  '9_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '9_1_id': '2043401',
-  '8_1': 'Enon',
-  '8_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '8_1_id': '2043401',
-  '8_2': 'Enon',
-  '8_2_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '8_2_id': '2043401',
-  '7_1': 'Enon',
-  '7_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '7_1_id': '2043401',
-  '7_2': 'Enon',
-  '7_2_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '7_2_id': '2043401',
-  '6_1': 'Enon',
-  '6_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '6_1_id': '2043401',
-  '6_2': 'Enon',
-  '6_2_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '6_2_id': '2043401',
-  '5_1': 'Enon',
-  '5_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '5_1_id': '2043401',
-  '5_2': 'Enon',
-  '5_2_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '5_2_id': '2043401',
-  '5_3': 'Enon',
-  '5_3_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '5_3_id': '2043401',
-  '4_1': 'Enon',
-  '4_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '4_1_id': '2043401',
-  '4_2': 'Enon',
-  '4_2_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '4_2_id': '2043401',
-  '4_3': 'Enon',
-  '4_3_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '4_3_id': '2043401',
-  '3_1': 'Enon',
-  '3_1_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '3_1_id': '2043401',
-  '3_2': 'Enon',
-  '3_2_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '3_2_id': '2043401',
-  '3_3': 'Enon',
-  '3_3_avatar': 'https://a.ppy.sh/2043401?1634752468.png',
-  '3_3_id': '2043401'
-}
-initalized : 1872936
-initalized : 1872936
-{ name: 'Heilia', inputname: '9_1' }
-{
-  name: 'Heilia',
-  img: 'https://a.ppy.sh/9823042?1638676404.jpeg',
-  rank: 5285,
-  id: 9823042,
-  inputname: '9_1'
-}
-initalized : 1872936
-initalized : 1872936
-initalized : 1872936
-{ name: 'Heilia 2', inputname: '9_1' }
-{
-  name: 'Heilia 2',
-  img: 'https://a.ppy.sh/1872936?1638201132.jpeg',
-  rank: 1506,
-  id: 1872936,
-  inputname: '9_1'
-}
-initalized : 1872936
-initalized : 1872936
-{ name: 'Heilia2', inputname: '9_1' }
-{ name: 'Heilia 2', inputname: '9_1' }
-{
-  name: 'Heilia 2',
-  img: 'https://a.ppy.sh/1872936?1638201132.jpeg',
-  rank: 1506,
-  id: 1872936,
-  inputname: '9_1'
-}
-initalized : 5979619
-initalized : 5979619
-initalized : 1872936
-{ name: 'Enon', inputname: '10_1' }
-{
-  name: 'Enon',
-  img: 'https://a.ppy.sh/2043401?1634752468.png',
-  rank: 1632,
-  id: 2043401,
-  inputname: '10_1'
-}
-initalized : 1872936
-initalized : 5979619
-initalized : 5979619
-initalized : 2043401
-initalized : 5979619
-{ name: 'nnaisle', inputname: '3_2' }
-{
-  name: 'NNAisle',
-  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
-  rank: 1843,
-  id: 5979619,
-  inputname: '3_2'
-}
-{ name: 'y', inputname: '3_2' }
-{ name: '', inputname: '3_2' }
-{ name: 'startrick', inputname: '3_2' }
-{
-  name: 'Startrick',
-  img: 'https://a.ppy.sh/2782104?1629977936.png',
-  rank: 4666,
-  id: 2782104,
-  inputname: '3_2'
-}
-submit request : 5979619
-DB2 UPDATE SUCCESS : 5979619
-DB2 DELETE SUCEESS : 5979619
-DB UPDATE SUCCESS : 5979619
-initalized : 1203216
-{ name: '', inputname: '9_1' }
-{ name: 'nna', inputname: '9_1' }
-{ name: 'nnaisle', inputname: '9_1' }
-{
-  name: 'NNAisle',
-  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
-  rank: 1843,
-  id: 5979619,
-  inputname: '9_1'
-}
-{ name: 'e', inputname: '10_1' }
-{ name: 'Enon', inputname: '10_1' }
-{
-  name: 'Enon',
-  img: 'https://a.ppy.sh/2043401?1634752468.png',
-  rank: 1632,
-  id: 2043401,
-  inputname: '10_1'
-}
-{ name: '', inputname: '8_1' }
-{ name: 'c', inputname: '8_1' }
-{ name: 'co', inputname: '8_1' }
-{ name: 'kl', inputname: '8_1' }
-{ name: 'kloyd', inputname: '8_1' }
-{ name: '', inputname: '8_1' }
-{ name: '', inputname: '8_2' }
-{ name: 'cemie', inputname: '7_1' }
-{
-  name: 'goyang',
-  img: 'https://a.ppy.sh/2008827?1631034585.jpeg',
-  rank: 1147,
-  id: 2008827,
-  inputname: '7_1'
-}
-{ name: '', inputname: '7_1' }
-{ name: 'ce', inputname: '7_1' }
-{ name: 'cemie', inputname: '7_1' }
-{
-  name: 'goyang',
-  img: 'https://a.ppy.sh/2008827?1631034585.jpeg',
-  rank: 1147,
-  id: 2008827,
-  inputname: '7_1'
-}
-{ name: '', inputname: '7_2' }
-{ name: '', inputname: '6_1' }
-{ name: '', inputname: '6_1' }
-{ name: '', inputname: '6_1' }
-{ name: 'coi', inputname: '6_1' }
-{ name: 'coin', inputname: '6_1' }
-{ name: '', inputname: '6_2' }
-{ name: 'c o i n', inputname: '6_1' }
-{
-  name: 'C O I N',
-  img: 'https://a.ppy.sh/698085?1563901242.png',
-  rank: 10755,
-  id: 698085,
-  inputname: '6_1'
-}
-{ name: 'd', inputname: '8_1' }
-{ name: 'Da', inputname: '8_1' }
-{ name: 'Dailyc', inputname: '8_1' }
-{ name: 'Dailycare', inputname: '8_1' }
-{
-  name: 'Dailycare',
-  img: 'https://a.ppy.sh/1634445?1629260773.jpeg',
-  rank: 4338,
-  id: 1634445,
-  inputname: '8_1'
-}
-{ name: 'ley', inputname: '5_1' }
-{ name: 'le', inputname: '5_1' }
-{ name: 'le', inputname: '5_1' }
-{ name: 'yel', inputname: '5_1' }
-{ name: 'yellow', inputname: '5_1' }
-{
-  name: 'Yellow',
-  img: 'https://a.ppy.sh/1203216?1631942076.jpeg',
-  rank: 2341,
-  id: 1203216,
-  inputname: '5_1'
-}
-{ name: '', inputname: '5_1' }
-{ name: '', inputname: '5_1' }
-{ name: '', inputname: '5_1' }
-{ name: 'he', inputname: '5_1' }
-{ name: 'heillia', inputname: '5_1' }
-{ name: 'be', inputname: '4_1' }
-{ name: 'be', inputname: '4_1' }
-{ name: 'beomsan', inputname: '4_1' }
-{
-  name: 'Beomsan',
-  img: 'https://a.ppy.sh/3626063?1638205554.jpeg',
-  rank: 7014,
-  id: 3626063,
-  inputname: '4_1'
-}
-{ name: '', inputname: '5_1' }
-{ name: '', inputname: '5_1' }
-{ name: 'tel', inputname: '5_1' }
-{ name: '', inputname: '5_3' }
-{ name: 'len', inputname: '3_1' }
-{ name: 'len', inputname: '3_1' }
-{
-  name: 'Len',
-  img: 'https://a.ppy.sh/1686145?1637549787.jpeg',
-  rank: 15988,
-  id: 1686145,
   inputname: '3_1'
 }
+submit request : 4585186 2021-12-10T18:25:20.790Z
+DB UPDATE SUCCESS : 4585186 2021-12-10T18:25:20.800Z
+DB2 UPDATE SUCCESS : 4585186 2021-12-10T18:25:20.801Z
+initalized : 4585186 2021-12-10T18:25:28.599Z
+initalized : 4585186 2021-12-10T18:25:32.552Z
+initalized : 4585186 2021-12-10T18:25:33.252Z
+{ voter: 'NNAisle', name: 'karcher', inputname: '7_2' }
+initalized : 5979619 2021-12-10T18:27:12.325Z
+{ voter: 'NNAisle', name: 'karcher', inputname: '7_2' }
+{ voter: 'NNAisle', name: '[ karcher', inputname: '7_2' }
+{ voter: 'NNAisle', name: '[ karcher', inputname: '7_2' }
+{ voter: 'NNAisle', name: '[ karcher ]', inputname: '7_2' }
+{ voter: 'NNAisle', name: '[ karcher]', inputname: '7_2' }
+{ voter: 'NNAisle', name: '[karcher]', inputname: '7_2' }
 {
-  name: 'Len',
-  img: 'https://a.ppy.sh/1686145?1637549787.jpeg',
-  rank: 15988,
-  id: 1686145,
-  inputname: '3_1'
-}
-{ name: '[t', inputname: '5_1' }
-{ name: '[', inputname: '5_1' }
-{ name: '', inputname: '5_1' }
-{ name: 't', inputname: '5_1' }
-{ name: 'tel', inputname: '5_1' }
-{ name: 'telta', inputname: '5_1' }
-{
-  name: 'Telta',
-  img: 'https://a.ppy.sh/4750140?1638200965.jpeg',
-  rank: 4671,
-  id: 4750140,
-  inputname: '5_1'
-}
-submit request : 1203216
-DB UPDATE SUCCESS : 1203216
-DB2 UPDATE SUCCESS : 1203216
-initalized : 5979619
-{ name: 'about', inputname: '10_1' }
-{ name: '', inputname: '10_1' }
-{ name: 'chocomint', inputname: '10_1' }
-{
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
-  inputname: '10_1'
-}
-{ name: 'FlyingTuna', inputname: '9_1' }
-{
-  name: 'FlyingTuna',
-  img: 'https://a.ppy.sh/9224078?1634967167.png',
-  rank: 13,
-  id: 9224078,
-  inputname: '9_1'
-}
-initalized : 5979619
-initalized : 5979619
-{ name: 'n', inputname: '4_3' }
-{ name: '', inputname: '4_3' }
-{ name: 'chees', inputname: '4_3' }
-{ name: '', inputname: '4_3' }
-{ name: 'm', inputname: '4_3' }
-{ name: '', inputname: '4_3' }
-{ name: 'yaon', inputname: '4_3' }
-{ name: 'yaong', inputname: '4_3' }
-{
-  name: 'Yaong',
-  img: 'https://a.ppy.sh/1883865?1619776559.png',
-  rank: null,
-  id: 1883865,
-  inputname: '4_3'
-}
-{ name: '', inputname: '3_2' }
-{ name: 'enon', inputname: '6_2' }
-{
-  name: 'Enon',
-  img: 'https://a.ppy.sh/2043401?1634752468.png',
-  rank: 1632,
-  id: 2043401,
-  inputname: '6_2'
-}
-{ name: '', inputname: '7_2' }
-{ name: 'yaong', inputname: '7_2' }
-{
-  name: 'Yaong',
-  img: 'https://a.ppy.sh/1883865?1619776559.png',
-  rank: null,
-  id: 1883865,
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
   inputname: '7_2'
 }
-{ name: 'em', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'enon', inputname: '6_2' }
+{ voter: 'NNAisle', name: '', inputname: '3_2' }
+{ voter: 'NNAisle', name: '', inputname: '3_2' }
+{ voter: 'NNAisle', name: 'firebat92', inputname: '3_2' }
 {
-  name: 'Enon',
-  img: 'https://a.ppy.sh/2043401?1634752468.png',
-  rank: 1632,
-  id: 2043401,
-  inputname: '6_2'
+  name: 'firebat92',
+  img: 'https://a.ppy.sh/1777162?1613737037.png',
+  rank: 88,
+  id: 1777162,
+  inputname: '3_2'
 }
-{ name: 'p', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'pi', inputname: '7_2' }
-{ name: 'pincers', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'pp', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: '0', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'o', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: '0', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'm', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'nn', inputname: '7_2' }
-{ name: 'nnaisle', inputname: '7_2' }
+{ voter: 'NNAisle', name: '', inputname: '3_2' }
+{ voter: 'NNAisle', name: '', inputname: '3_2' }
+{ voter: 'NNAisle', name: 'f', inputname: '3_2' }
+{ voter: 'NNAisle', name: 'firebat92', inputname: '3_2' }
 {
-  name: 'NNAisle',
-  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
-  rank: 1843,
-  id: 5979619,
-  inputname: '7_2'
+  name: 'firebat92',
+  img: 'https://a.ppy.sh/1777162?1613737037.png',
+  rank: 88,
+  id: 1777162,
+  inputname: '3_2'
 }
-{ name: 'n', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'nodejs', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-submit request : 5979619
-DB2 UPDATE SUCCESS : 5979619
-DB2 DELETE SUCEESS : 5979619
-DB UPDATE SUCCESS : 5979619
-initalized : 5979619
-initalized : 2043401
-{ name: '', inputname: '10_1' }
-{ name: 'chocomi', inputname: '10_1' }
-{ name: 'cookiezi', inputname: '10_1' }
-{
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
-  inputname: '10_1'
-}
-{ name: '', inputname: '10_1' }
-{ name: 'flyongtu', inputname: '10_1' }
-{ name: 'flyingtuna', inputname: '10_1' }
+submit request : 5979619 2021-12-10T18:27:56.322Z
+DB2 UPDATE SUCCESS : 5979619 2021-12-10T18:27:56.325Z
+DB2 DELETE SUCEESS : 5979619 2021-12-10T18:27:56.343Z
+DB UPDATE SUCCESS : 5979619 2021-12-10T18:27:56.425Z
+Server is running on port : 80
+url : http://oktp.shop
+Connected DB
+success to USE 2021_OsuKoreanTopPlayer
+initalized : 5979619 2021-12-10T18:28:35.547Z
+initalized : 8775024 2021-12-10T18:36:00.016Z
+{ voter: 'Karuna', name: 'g', inputname: '10_1' }
+{ voter: 'Karuna', name: 'gjhfk', inputname: '10_1' }
+initalized : 8775024 2021-12-10T18:36:16.160Z
+{ voter: 'Karuna', name: 'FlyingTUn', inputname: '10_1' }
+{ voter: 'Karuna', name: 'FlyingTuna', inputname: '10_1' }
 {
   name: 'FlyingTuna',
   img: 'https://a.ppy.sh/9224078?1634967167.png',
@@ -703,8 +574,7 @@ initalized : 2043401
   id: 9224078,
   inputname: '10_1'
 }
-{ name: '[Karch ofer]', inputname: '9_1' }
-{ name: '[Karcher]', inputname: '9_1' }
+{ voter: 'Karuna', name: '[Karcher]', inputname: '9_1' }
 {
   name: '[Karcher]',
   img: 'https://a.ppy.sh/11443437?1634948719.png',
@@ -712,58 +582,279 @@ initalized : 2043401
   id: 11443437,
   inputname: '9_1'
 }
-initalized : 2043401
-initalized : 2043401
-initalized : 5979619
-initalized : 5979619
-initalized : 5979619
-initalized : 2043401
-initalized : 2043401
-initalized : 2043401
-initalized : 2043401
-{ name: '', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'nn', inputname: '7_2' }
-{ name: '', inputname: '7_2' }
-{ name: 'norazura', inputname: '7_2' }
+{ voter: 'Karuna', name: '[Karcher', inputname: '9_1' }
+initalized : 7802232 2021-12-10T18:43:43.095Z
+initalized : 7802232 2021-12-10T18:44:08.916Z
+initalized : 4499123 2021-12-10T18:52:23.213Z
+initalized : 4499123 2021-12-10T18:53:22.171Z
+{ voter: 'Na0', name: 'hgyhggggg', inputname: '8_1' }
+{ voter: 'Na0', name: '', inputname: '8_1' }
+initalized : 2086138 2021-12-10T19:11:07.710Z
+{ voter: '_AfterWind', name: 'FlyingTuna', inputname: '10_1' }
 {
-  name: 'Norazura',
-  img: 'https://a.ppy.sh/2045082?1549265899.png',
-  rank: 54123,
-  id: 2045082,
+  name: 'FlyingTuna',
+  img: 'https://a.ppy.sh/9224078?1634967167.png',
+  rank: 13,
+  id: 9224078,
+  inputname: '10_1'
+}
+{ voter: '_AfterWind', name: 'Karuna', inputname: '9_1' }
+{
+  name: 'Karuna',
+  img: 'https://a.ppy.sh/8775024?1634977011.png',
+  rank: 199,
+  id: 8775024,
+  inputname: '9_1'
+}
+{ voter: '_AfterWind', name: '[Karcher]', inputname: '8_1' }
+{
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '8_1'
+}
+{ voter: '_AfterWind', name: '[Karcher]', inputname: '8_1' }
+{
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '8_1'
+}
+{ voter: '_AfterWind', name: '', inputname: '8_2' }
+{ voter: '_AfterWind', name: 'Doomsday fanboy', inputname: '8_2' }
+{
+  name: 'Doomsday fanboy',
+  img: 'https://a.ppy.sh/4511522?1634956969.png',
+  rank: 236,
+  id: 4511522,
+  inputname: '8_2'
+}
+{ voter: '_AfterWind', name: 'Zeise', inputname: '7_1' }
+{ voter: '_AfterWind', name: 'Zeisen-', inputname: '7_1' }
+{
+  name: 'Zeisen-',
+  img: 'https://a.ppy.sh/7892320?1634983468.png',
+  rank: 64,
+  id: 7892320,
+  inputname: '7_1'
+}
+{ voter: '_AfterWind', name: 'Nopek', inputname: '7_2' }
+{ voter: '_AfterWind', name: 'Nopekjk', inputname: '7_2' }
+{
+  name: 'Nopekjk',
+  img: 'https://a.ppy.sh/4585186?1634940664.png',
+  rank: 1806,
+  id: 4585186,
   inputname: '7_2'
 }
-initalized : 2043401
+{ voter: '_AfterWind', name: 'chocomint', inputname: '6_1' }
+{ voter: '_AfterWind', name: '', inputname: '6_2' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '6_1'
+}
+{ voter: '_AfterWind', name: 'Rankajae', inputname: '6_2' }
+{ voter: '_AfterWind', name: 'M', inputname: '5_1' }
+{
+  name: 'RankAjae',
+  img: 'https://a.ppy.sh/12137295?1638518389.jpeg',
+  rank: 112,
+  id: 12137295,
+  inputname: '6_2'
+}
+{ voter: '_AfterWind', name: 'Maiaz', inputname: '5_1' }
+{ voter: '_AfterWind', name: '', inputname: '5_2' }
+{
+  name: 'Maiaz',
+  img: 'https://a.ppy.sh/6916642?1634980132.png',
+  rank: 429,
+  id: 6916642,
+  inputname: '5_1'
+}
+{ voter: '_AfterWind', name: 'chocomint', inputname: '6_1' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '6_1'
+}
+{ voter: '_AfterWind', name: '', inputname: '6_1' }
+{ voter: '_AfterWind', name: 'chocomint', inputname: '5_2' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '5_2'
+}
+{ voter: '_AfterWind', name: '', inputname: '5_1' }
+{ voter: '_AfterWind', name: 'Maiaz', inputname: '6_1' }
+{
+  name: 'Maiaz',
+  img: 'https://a.ppy.sh/6916642?1634980132.png',
+  rank: 429,
+  id: 6916642,
+  inputname: '6_1'
+}
+{ voter: '_AfterWind', name: 'chocomint', inputname: '5_1' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '5_1'
+}
+{ voter: '_AfterWind', name: 'worst ', inputname: '5_2' }
+{ voter: '_AfterWind', name: 'worst hr player', inputname: '5_2' }
+{ voter: '_AfterWind', name: '_', inputname: '5_3' }
+{
+  name: 'worst hr player',
+  img: 'https://a.ppy.sh/14106450?1623236440.jpeg',
+  rank: 267,
+  id: 14106450,
+  inputname: '5_2'
+}
+{ voter: '_AfterWind', name: '_Suyong', inputname: '5_3' }
+{
+  name: '_Suyong',
+  img: 'https://a.ppy.sh/7295276?1637796609.jpeg',
+  rank: 11537,
+  id: 7295276,
+  inputname: '5_3'
+}
+{ voter: '_AfterWind', name: 'flansl', inputname: '4_1' }
+{
+  name: 'flansl',
+  img: 'https://a.ppy.sh/673549?1633767534.jpeg',
+  rank: 2318,
+  id: 673549,
+  inputname: '4_1'
+}
+{ voter: '_AfterWind', name: 'Lusce', inputname: '4_2' }
+{ voter: '_AfterWind', name: 'Luscent', inputname: '4_2' }
+{
+  name: 'Luscent',
+  img: 'https://a.ppy.sh/2688581?1635863339.jpeg',
+  rank: 1686,
+  id: 2688581,
+  inputname: '4_2'
+}
+{ voter: '_AfterWind', name: 'adamkus', inputname: '4_3' }
+{
+  name: 'adamkus',
+  img: 'https://a.ppy.sh/11692602?1638277395.png',
+  rank: 51,
+  id: 11692602,
+  inputname: '4_3'
+}
+initalized : 11161490 2021-12-10T19:15:33.768Z
+{ voter: 'salam4life', name: 'badeu', inputname: '10_1' }
+{ voter: 'salam4life', name: 'tiganu', inputname: '9_1' }
+{ voter: 'salam4life', name: 'salam4', inputname: '8_1' }
+{ voter: 'salam4life', name: 'salam4life', inputname: '8_1' }
+{ voter: '_AfterWind', name: 'Aristia', inputname: '3_1' }
+{
+  name: 'Aristia',
+  img: 'https://a.ppy.sh/3478883?1625270246.png',
+  rank: 366,
+  id: 3478883,
+  inputname: '3_1'
+}
+submit request : 2086138 2021-12-10T19:17:47.584Z
+DB UPDATE SUCCESS : 2086138 2021-12-10T19:17:47.612Z
+DB2 UPDATE SUCCESS : 2086138 2021-12-10T19:17:47.616Z
+initalized : 13696437 2021-12-10T19:17:48.197Z
+{ voter: 'TorchMK', name: 'Flying', inputname: '10_1' }
+{ voter: 'TorchMK', name: 'Flyingtuna', inputname: '10_1' }
+{
+  name: 'FlyingTuna',
+  img: 'https://a.ppy.sh/9224078?1634967167.png',
+  rank: 13,
+  id: 9224078,
+  inputname: '10_1'
+}
+{ voter: 'TorchMK', name: 'Kar', inputname: '9_1' }
+{ voter: 'TorchMK', name: 'Karch', inputname: '9_1' }
+{ voter: 'TorchMK', name: 'Karcher', inputname: '9_1' }
+{ voter: 'TorchMK', name: 'Karcher', inputname: '9_1' }
+{ voter: 'TorchMK', name: 'Karcher', inputname: '9_1' }
+{ voter: 'TorchMK', name: '[Karcher', inputname: '9_1' }
+{ voter: 'TorchMK', name: '[Karcher]', inputname: '9_1' }
+{
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '9_1'
+}
+{ voter: 'TorchMK', name: '', inputname: '9_1' }
+initalized : 2086138 2021-12-10T19:18:49.125Z
+{ voter: 'TorchMK', name: 'chocom', inputname: '9_1' }
+{ voter: 'TorchMK', name: 'chocoming', inputname: '9_1' }
+{ voter: 'TorchMK', name: 'chocomint', inputname: '9_1' }
+{
+  name: 'chocomint',
+  img: 'https://a.ppy.sh/124493?1635998770.png',
+  rank: 56,
+  id: 124493,
+  inputname: '9_1'
+}
+{ voter: 'TorchMK', name: '', inputname: '8_1' }
+{ voter: 'TorchMK', name: '', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[]', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[]', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[]', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[]', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[kaecher]', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[kar]', inputname: '8_1' }
+{ voter: 'TorchMK', name: '[karcher]', inputname: '8_1' }
+{
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '8_1'
+}
+{ voter: 'TorchMK', name: 'Rankajae', inputname: '8_2' }
+{
+  name: 'RankAjae',
+  img: 'https://a.ppy.sh/12137295?1638518389.jpeg',
+  rank: 112,
+  id: 12137295,
+  inputname: '8_2'
+}
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Request._callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\index.js:185:37)
+    at Request.self.callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:185:22)
+    at Request.emit (node:events:390:28)
+    at Request.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1154:10)
+    at Request.emit (node:events:390:28)
+    at IncomingMessage.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (node:events:509:28)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
 Server is running on port : 80
 url : http://oktp.shop
 Connected DB
 success to USE 2021_OsuKoreanTopPlayer
-initalized : 5979619 2021-12-10T08:35:57.337Z
-submit request : 5979619 2021-12-10T08:36:04.101Z
-DB2 UPDATE SUCCESS : 5979619 2021-12-10T08:36:04.127Z
-DB2 DELETE SUCEESS : 5979619 2021-12-10T08:36:04.230Z
-DB UPDATE SUCCESS : 5979619 2021-12-10T08:36:04.328Z
-Server is running on port : 80
-url : http://oktp.shop
-Connected DB
-success to USE 2021_OsuKoreanTopPlayer
-ALTER TABLE vote_result ADD candidate_name VARCHAR(40) not null success
-initalized : 5979619 2021-12-10T08:43:05.937Z
-submit request : 5979619 2021-12-10T08:43:08.344Z
-DB2 UPDATE SUCCESS : 5979619 2021-12-10T08:43:08.362Z
-DB2 DELETE SUCEESS : 5979619 2021-12-10T08:43:08.380Z
-DB UPDATE SUCCESS : 5979619 2021-12-10T08:43:08.438Z
-initalized : 5979619 2021-12-10T09:02:34.654Z
-initalized : 5979619 2021-12-10T09:04:48.575Z
-{ name: 'ch', inputname: '10_1' }
-{ name: 'cho', inputname: '10_1' }
-{ name: 'cho', inputname: '10_1' }
-{ name: 'choco', inputname: '10_1' }
-{ name: 'choco', inputname: '10_1' }
-{ name: 'chocom', inputname: '10_1' }
-{ name: 'chocomin', inputname: '10_1' }
-{ name: 'chocomint', inputname: '10_1' }
-{ name: 'chocomint', inputname: '10_1' }
+initalized : 8775024 2021-12-10T19:19:29.456Z
+initalized : 13696437 2021-12-10T19:19:29.504Z
+initalized : 2868952 2021-12-10T19:19:54.918Z
+{ voter: 'Mya', name: 'y', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: 'chocomint', inputname: '10_1' }
 {
   name: 'chocomint',
   img: 'https://a.ppy.sh/124493?1635998770.png',
@@ -771,256 +862,209 @@ initalized : 5979619 2021-12-10T09:04:48.575Z
   id: 124493,
   inputname: '10_1'
 }
+{ voter: 'Mya', name: '', inputname: '9_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: 'a', inputname: '10_1' }
+{ voter: 'Mya', name: 'x', inputname: '9_1' }
+{ voter: 'Mya', name: 's', inputname: '9_1' }
+{ voter: 'Mya', name: 'e', inputname: '8_1' }
+{ voter: 'Mya', name: 'x', inputname: '8_2' }
+{ voter: 'Mya', name: '', inputname: '8_2' }
+{ voter: 'Mya', name: '', inputname: '8_1' }
+{ voter: 'Mya', name: '', inputname: '9_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '10_1' }
+{ voter: 'Mya', name: 'Rabbit Pudding', inputname: '10_1' }
+{ voter: 'Mya', name: '', inputname: '9_1' }
 {
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
+  name: 'Rabbit Pudding',
+  img: 'https://a.ppy.sh/13028063?1638102528.jpeg',
+  rank: 1126,
+  id: 13028063,
   inputname: '10_1'
 }
-{ name: 'FlyingTuna', inputname: '9_1' }
+initalized : 16270736 2021-12-10T19:25:07.747Z
+initalized : 3674590 2021-12-10T19:33:39.098Z
+initalized : 9858638 2021-12-10T19:36:31.557Z
+{ voter: 'Yamang', name: 'YAMANG', inputname: '10_1' }
+{
+  name: 'Yamang',
+  img: 'https://a.ppy.sh/9858638?1635763738.jpeg',
+  rank: 80336,
+  id: 9858638,
+  inputname: '10_1'
+}
+{ voter: 'Yamang', name: 'DDM', inputname: '10_1' }
+{
+  name: 'ddm',
+  img: 'https://a.ppy.sh/7910282?1637472847.png',
+  rank: 2284,
+  id: 7910282,
+  inputname: '10_1'
+}
+{ voter: 'Yamang', name: '', inputname: '10_1' }
+{ voter: 'Yamang', name: 'HEHE', inputname: '10_1' }
+{ voter: 'Yamang', name: '', inputname: '10_1' }
+{ voter: 'Yamang', name: 'FLYINGTUNA', inputname: '10_1' }
 {
   name: 'FlyingTuna',
   img: 'https://a.ppy.sh/9224078?1634967167.png',
   rank: 13,
   id: 9224078,
-  inputname: '9_1'
+  inputname: '10_1'
 }
-{ name: 'fl', inputname: '9_1' }
-{ name: 'fl', inputname: '9_1' }
-{ name: 'fly', inputname: '9_1' }
-{ name: 'flyin', inputname: '9_1' }
+{ voter: 'Yamang', name: 'KARUNA', inputname: '9_1' }
 {
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
+  name: 'Karuna',
+  img: 'https://a.ppy.sh/8775024?1634977011.png',
+  rank: 199,
+  id: 8775024,
   inputname: '9_1'
 }
-{ name: 'Fly', inputname: '9_1' }
-{ name: 'Flyg', inputname: '9_1' }
+{ voter: 'Yamang', name: '[KARCHER]', inputname: '8_1' }
 {
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '8_1'
 }
-{ name: 'Flyt', inputname: '9_1' }
-{ name: 'Flytu', inputname: '9_1' }
-{ name: 'Flytuna', inputname: '9_1' }
-{ name: 'Flytuna', inputname: '9_1' }
-{ name: 'Flytu', inputname: '9_1' }
-{ name: 'Flyt', inputname: '9_1' }
-{ name: 'Fly', inputname: '9_1' }
-{ name: 'Fly', inputname: '9_1' }
+{ voter: 'Yamang', name: 'HEILIA', inputname: '8_2' }
 {
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
+  name: 'Heilia',
+  img: 'https://a.ppy.sh/9823042?1638676404.jpeg',
+  rank: 5289,
+  id: 9823042,
+  inputname: '8_2'
 }
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{ name: 'Flyn', inputname: '9_1' }
-{ name: 'Flyng', inputname: '9_1' }
-{ name: 'Flyng', inputname: '9_1' }
-{ name: 'Fly', inputname: '9_1' }
-{ name: 'Fly', inputname: '9_1' }
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{ name: 'Flyn', inputname: '9_1' }
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{ name: 'Flyg', inputname: '9_1' }
-{ name: 'Fly', inputname: '9_1' }
-{ name: 'Flyin', inputname: '9_1' }
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{ name: 'Flyg', inputname: '9_1' }
-{ name: 'Fl', inputname: '9_1' }
-{ name: 'F', inputname: '9_1' }
-{ name: '', inputname: '9_1' }
-{ name: '', inputname: '9_1' }
-{ name: 'fl', inputname: '9_1' }
-{ name: 'fl', inputname: '9_1' }
-{ name: 'fly', inputname: '9_1' }
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{ name: 'Fly', inputname: '9_1' }
-{ name: 'Fly', inputname: '9_1' }
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{
-  name: 'Fly',
-  img: 'https://osu.ppy.sh/images/layout/avatar-guest.png',
-  rank: null,
-  id: 1095738,
-  inputname: '9_1'
-}
-{ name: 'F', inputname: '9_1' }
-{ name: '', inputname: '9_1' }
-{ name: 'f', inputname: '9_1' }
-{ name: 'f', inputname: '9_1' }
-{ name: 'fl', inputname: '9_1' }
-{ name: 'flyi', inputname: '9_1' }
-{ name: 'flying', inputname: '9_1' }
-{ name: 'flyingt', inputname: '9_1' }
-{ name: 'flyingtu', inputname: '9_1' }
-{ name: 'flyingtuna', inputname: '9_1' }
+initalized : 2043401 2021-12-10T19:41:40.602Z
+initalized : 4609026 2021-12-10T19:42:41.875Z
+initalized : 5979619 2021-12-10T19:44:43.169Z
+initalized : 2043401 2021-12-10T19:44:59.047Z
+initalized : 2043401 2021-12-10T19:45:56.276Z
+{ voter: 'balpo', name: 'Flying', inputname: '10_1' }
+{ voter: 'balpo', name: 'Flyingtuna', inputname: '10_1' }
 {
   name: 'FlyingTuna',
   img: 'https://a.ppy.sh/9224078?1634967167.png',
   rank: 13,
   id: 9224078,
+  inputname: '10_1'
+}
+{ voter: 'balpo', name: 'W', inputname: '9_1' }
+{ voter: 'balpo', name: 'worst hr ', inputname: '9_1' }
+{ voter: 'balpo', name: 'worst hr player', inputname: '9_1' }
+{
+  name: 'worst hr player',
+  img: 'https://a.ppy.sh/14106450?1623236440.jpeg',
+  rank: 267,
+  id: 14106450,
   inputname: '9_1'
 }
-initalized : 5979619 2021-12-10T09:05:45.432Z
-{ name: '', inputname: '9_1' }
-{ name: 'flyingtuna', inputname: '9_1' }
+{ voter: 'balpo', name: '', inputname: '8_1' }
+{ voter: 'balpo', name: '[karcher', inputname: '8_1' }
+{ voter: 'balpo', name: '[karcher]', inputname: '8_1' }
+{ voter: 'balpo', name: '', inputname: '8_2' }
 {
-  name: 'FlyingTuna',
-  img: 'https://a.ppy.sh/9224078?1634967167.png',
-  rank: 13,
-  id: 9224078,
-  inputname: '9_1'
+  name: '[Karcher]',
+  img: 'https://a.ppy.sh/11443437?1634948719.png',
+  rank: 57,
+  id: 11443437,
+  inputname: '8_1'
 }
-initalized : 5979619 2021-12-10T09:13:59.786Z
-initalized : 5979619 2021-12-10T09:18:31.377Z
-initalized : 5979619 2021-12-10T09:20:29.737Z
-initalized : 5979619 2021-12-10T09:21:32.830Z
-initalized : 5979619 2021-12-10T09:21:52.694Z
-initalized : 5979619 2021-12-10T09:24:13.951Z
-initalized : 5979619 2021-12-10T09:25:20.943Z
-initalized : 5979619 2021-12-10T09:26:46.742Z
-initalized : 5979619 2021-12-10T09:27:58.217Z
-initalized : 5979619 2021-12-10T09:29:48.424Z
-{ name: 'nn', inputname: '3_2' }
-{ name: 'nnaisl', inputname: '3_2' }
-{ name: 'nnaisle', inputname: '3_2' }
+{ voter: 'balpo', name: 'adma', inputname: '8_2' }
+{ voter: 'balpo', name: 'admakus', inputname: '8_2' }
+{ voter: 'balpo', name: 'su', inputname: '7_1' }
+{ voter: 'balpo', name: 'karuna', inputname: '7_1' }
+{ voter: 'balpo', name: '', inputname: '7_2' }
 {
-  name: 'NNAisle',
-  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
-  rank: 1846,
-  id: 5979619,
-  inputname: '3_2'
+  name: 'Karuna',
+  img: 'https://a.ppy.sh/8775024?1634977011.png',
+  rank: 199,
+  id: 8775024,
+  inputname: '7_1'
 }
-{ name: 'cookiezi', inputname: '3_2' }
+{ voter: 'balpo', name: 'suyong_', inputname: '7_2' }
 {
-  name: 'chocomint',
-  img: 'https://a.ppy.sh/124493?1635998770.png',
-  rank: 56,
-  id: 124493,
-  inputname: '3_2'
+  name: 'Suyong_',
+  img: 'https://a.ppy.sh/8799923?1639065681.jpeg',
+  rank: 272,
+  id: 8799923,
+  inputname: '7_2'
 }
-{ name: 'nnais', inputname: '3_2' }
-{ name: 's', inputname: '3_2' }
-{ name: '', inputname: '3_3' }
-{ name: '', inputname: '3_3' }
-{ name: '', inputname: '3_2' }
-initalized : 5979619 2021-12-10T09:30:40.413Z
-{ name: 'star', inputname: '3_2' }
-{ name: 'startrick', inputname: '3_2' }
+{ voter: 'balpo', name: 'adamkus', inputname: '8_2' }
 {
-  name: 'Startrick',
-  img: 'https://a.ppy.sh/2782104?1629977936.png',
-  rank: 4670,
-  id: 2782104,
-  inputname: '3_2'
+  name: 'adamkus',
+  img: 'https://a.ppy.sh/11692602?1638277395.png',
+  rank: 51,
+  id: 11692602,
+  inputname: '8_2'
 }
-{ name: '', inputname: '3_3' }
-{ name: '', inputname: '3_2' }
-{ name: '', inputname: '3_3' }
-initalized : 5979619 2021-12-10T09:33:12.322Z
-initalized : 5979619 2021-12-10T09:38:27.308Z
-{ name: 'ama', inputname: '3_2' }
-{ name: 'nnaisle', inputname: '3_2' }
+{ voter: 'balpo', name: 'nop', inputname: '7_1' }
+{ voter: 'balpo', name: 'nopekjk', inputname: '7_1' }
 {
-  name: 'NNAisle',
-  img: 'https://a.ppy.sh/5979619?1629786767.jpeg',
-  rank: 1846,
-  id: 5979619,
-  inputname: '3_2'
+  name: 'Nopekjk',
+  img: 'https://a.ppy.sh/4585186?1634940664.png',
+  rank: 1806,
+  id: 4585186,
+  inputname: '7_1'
 }
-{ name: 's', inputname: '3_2' }
-{ name: 'startrick', inputname: '3_2' }
-{ name: '', inputname: '3_3' }
+{ voter: 'balpo', name: 'do', inputname: '7_2' }
+{ voter: 'balpo', name: 'doomsday ', inputname: '7_2' }
+{ voter: 'balpo', name: 'doomsday fanboy', inputname: '7_2' }
+{ voter: 'balpo', name: '', inputname: '6_1' }
 {
-  name: 'Startrick',
-  img: 'https://a.ppy.sh/2782104?1629977936.png',
-  rank: 4670,
-  id: 2782104,
-  inputname: '3_2'
+  name: 'Doomsday fanboy',
+  img: 'https://a.ppy.sh/4511522?1634956969.png',
+  rank: 236,
+  id: 4511522,
+  inputname: '7_2'
 }
-{ name: '', inputname: '3_2' }
-{ name: 'startrick', inputname: '3_2' }
-{ name: '', inputname: '3_3' }
+{ voter: 'balpo', name: 'karuna', inputname: '6_1' }
 {
-  name: 'Startrick',
-  img: 'https://a.ppy.sh/2782104?1629977936.png',
-  rank: 4670,
-  id: 2782104,
-  inputname: '3_2'
+  name: 'Karuna',
+  img: 'https://a.ppy.sh/8775024?1634977011.png',
+  rank: 199,
+  id: 8775024,
+  inputname: '6_1'
 }
-{ name: '', inputname: '3_1' }
-{ name: 'gay', inputname: '3_1' }
-{ name: 'Startrick', inputname: '3_2' }
+{ voter: 'balpo', name: 'suyong_', inputname: '6_2' }
+{ voter: 'balpo', name: '', inputname: '5_1' }
 {
-  name: 'Startrick',
-  img: 'https://a.ppy.sh/2782104?1629977936.png',
-  rank: 4670,
-  id: 2782104,
-  inputname: '3_2'
+  name: 'Suyong_',
+  img: 'https://a.ppy.sh/8799923?1639065681.jpeg',
+  rank: 272,
+  id: 8799923,
+  inputname: '6_2'
 }
-{ name: 'sar', inputname: '3_1' }
-{ name: '', inputname: '3_2' }
-{ name: '', inputname: '3_1' }
-{ name: 'startrick', inputname: '3_1' }
-{ name: '', inputname: '3_2' }
-{
-  name: 'Startrick',
-  img: 'https://a.ppy.sh/2782104?1629977936.png',
-  rank: 4670,
-  id: 2782104,
-  inputname: '3_1'
-}
-{ name: 'iroha', inputname: '3_1' }
-{ name: '', inputname: '3_2' }
-{
-  name: 'Iroha',
-  img: 'https://a.ppy.sh/6304387?1624664605.jpeg',
-  rank: null,
-  id: 6304387,
-  inputname: '3_1'
-}
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Request._callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\index.js:185:37)
+    at Request.self.callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:185:22)
+    at Request.emit (node:events:390:28)
+    at Request.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1154:10)
+    at Request.emit (node:events:390:28)
+    at IncomingMessage.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (node:events:509:28)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+Server is running on port : 80
+url : http://oktp.shop
+Connected DB
+success to USE 2021_OsuKoreanTopPlayer
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Request._callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\index.js:185:37)
+    at Request.self.callback (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:185:22)
+    at Request.emit (node:events:390:28)
+    at Request.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1154:10)
+    at Request.emit (node:events:390:28)
+    at IncomingMessage.<anonymous> (c:\2021-OSU-Korean-Top-player-Voting-Page-Based-on-Nodejs\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (node:events:509:28)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+Server is running on port : 80
+url : http://oktp.shop
+initalized : 4609026 2021-12-10T19:49:08.982Z
+Connected DB

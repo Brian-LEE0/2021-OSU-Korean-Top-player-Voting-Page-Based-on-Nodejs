@@ -233,7 +233,7 @@
 		   }
 		   
 		   .content {
-				height: 200px;
+				max-height: 200px;
 		   }
             .wrapper {
 				flex-direction: column;
@@ -338,7 +338,7 @@
             <div class="btn-wrapper">
                 <% if (typeof (nicname_me)=='undefined' ) { %>
                     <form action="/login">
-                        <input class="btn" type="submit" value="Login">
+                        <input class="btn" type="submit" value="Vote">
                     </form>
                     <% } else { %>
                         <div style="display: flex; justify-content: center; align-items: flex-start;">
