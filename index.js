@@ -362,15 +362,34 @@ app.post("/submit", (req, res) => {
 
 app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
     try {
+        var data = {};
+        con.query(
+            "SELECT SELECT count(id) AS db1 FROM 2021_osukoreantopplayer.voter",
+            (err, result) => {
+                if (!err) data.db1 = JSON.parse(JSON.stringify(result))
+            }
+        );
+
+        con.query(
+            "SELECT count(DISTINCT voter_id) AS db2 FROM 2021_osukoreantopplayer.vote_result",
+            (err, result) => {
+                if (!err) data.db2 = JSON.parse(JSON.stringify(result))
+            }
+        );
+
         con.query(
             "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
             (err, result) => {
-                if (!err) {
-                    var data = JSON.parse(JSON.stringify(result))
-                    res.render("result.ejs", {"data":data});
-                }
+                if (!err) data.data = JSON.parse(JSON.stringify(result))
             }
         );
+        con.query(
+            "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
+            (err, result) => {
+                if (!err) data.data = JSON.parse(JSON.stringify(result))
+            }
+        );
+        res.render("result.ejs", data);
     } catch (err) {
         console.log("Error : /EXHCaUv655BWYvrGcqTD");
     }
