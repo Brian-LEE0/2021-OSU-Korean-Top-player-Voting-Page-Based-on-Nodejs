@@ -128,7 +128,7 @@ app.get("/login", (req, res) => {
             "response_type=code&scope=public";
         return res.redirect(uri);
     } catch (err) {
-        console.log(err);
+        console.log("Error : get/login");
     }
 });
 
@@ -157,7 +157,7 @@ app.get("/authorize", async(req, res) => {
 
         res.redirect("/main");
     } catch (err) {
-        console.log(err);
+        console.log("Error : get/authorize");
     }
 });
 
@@ -230,7 +230,7 @@ app.post("/init", (req, res) => {
         console.log("initalized :", req.body["id"], today);
         retrieveDB(res, String(req.body["id"]));
     } catch (err) {
-        console.log(err);
+        console.log("Error : post/init");
     }
 });
 
@@ -301,7 +301,16 @@ app.post("/main", (req, res) => {
                 }
             }
         );
-    } catch (err) {}
+    } catch (err) {
+        res.json({
+            name: "",
+            img: "",
+            rank: "",
+            id: "",
+            inputname: req.body["inputname"],
+        });
+        console.log("Error : post/main")
+    }
 });
 
 app.post("/submit", (req, res) => {
@@ -354,17 +363,16 @@ app.post("/submit", (req, res) => {
 app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
     try {
         con.query(
-            "SELECT count(candidate_name), group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
+            "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
             (err, result) => {
-                if (result.length) {
-                    try {
-                        console.log(res.json(JSON.parse(JSON.stringify(result))));
-                    } catch (e) {}
+                if (!err) {
+                    var data = JSON.parse(JSON.stringify(result))
+                    res.render("result.ejs", data);
                 }
             }
         );
     } catch (err) {
-        console.log(err);
+        console.log("Error : /EXHCaUv655BWYvrGcqTD");
     }
 });
 

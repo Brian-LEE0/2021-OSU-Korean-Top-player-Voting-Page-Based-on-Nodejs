@@ -2,38 +2,41 @@
 <html>
 
 <head>
-    <title>Result Page</title>
+    <title>List Page</title>
 </head>
 
 <body>
-    <h1>Result Page</h1>
+    <h1>List Page</h1>
     <hr />
-    <form method="post">
-        <fieldset>
-            <legend>Result Data</legend>
-            <table>
-                <tr>
-                    <td><label>Id</label></td>
-                    <td><input type="text" name="id" value="<%= data.id %>" disabled /></td>
-                </tr>
-                <tr>
-                    <td><label>Name</label></td>
-                    <td><input type="text" name="name" value="<%= data.name %>" /></td>
-                </tr>
-                <tr>
-                    <td><label>Model Number</label></td>
-                    <td>
-                        <input type="text" name="modelnumber" value="<%= data.modelnumber %>" />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Series</label></td>
-                    <td><input type="text" name="series" value="<%= data.series %>" /></td>
-                </tr>
-            </table>
-            <input type="submit" />
-        </fieldset>
-    </form>
+    <table width="100%" border="1">
+        <tr>
+            <th>DELETE</th>
+            <th>EDIT</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Model Number</th>
+            <th>Series</th>
+        </tr>
+        <% data.forEach(function (item, index) { %>
+            <tr>
+                <td>
+                    <%= item.ranking %>
+                </td>
+                <td>
+                    <%= item.name %>
+                </td>
+                <td>
+                    <%= item.candidate_id %>
+                </td>
+                <td>
+                    <%= item.pt %>
+                </td>
+                <td>
+                    <%= item._count %>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
 </body>
 
 </html>
