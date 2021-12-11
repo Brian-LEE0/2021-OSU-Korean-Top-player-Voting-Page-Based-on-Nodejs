@@ -5,18 +5,17 @@ const path = require("path");
 const request_prom = require("request-promise");
 const request = require("request");
 const bodyParser = require("body-parser");
-const date = require("date-utils")
-const { cookie } = require("request");
+const date = require("date-utils");
 
 const app = express();
 
-const url = "http://oktp.shop"
+const url = "http://oktp.shop";
 //const url = "http://localhost:80";
 
 const sql_info = {
     host: "localhost",
     user: "root",
-    password: "01085244701"
+    password: "01085244701",
 };
 var con = mysql.createConnection(sql_info);
 const compare = {
@@ -37,18 +36,13 @@ const vote_info = [
 ];
 
 con.connect((err) => {
-    con.query(
-        "CREATE DATABASE 2021_OsuKoreanTopPlayer",
-        (err, result) => {
-            if (!err) console.log("success to CREATE DATABASE 2021_OsuKoreanTopPlayer");
-        }
-    );
-    con.query(
-        "USE 2021_OsuKoreanTopPlayer",
-        (err, result) => {
-            if (!err) console.log("success to USE 2021_OsuKoreanTopPlayer");
-        }
-    );
+    con.query("CREATE DATABASE 2021_OsuKoreanTopPlayer", (err, result) => {
+        if (!err)
+            console.log("success to CREATE DATABASE 2021_OsuKoreanTopPlayer");
+    });
+    con.query("USE 2021_OsuKoreanTopPlayer", (err, result) => {
+        if (!err) console.log("success to USE 2021_OsuKoreanTopPlayer");
+    });
     var temp;
     if (err) console.log(err);
     console.log("Connected DB");
@@ -66,7 +60,7 @@ con.connect((err) => {
     );
     AddRow("vote_result", "voter_id VARCHAR(40) not null");
     AddRow("vote_result", "candidate_id VARCHAR(40) not null");
-	AddRow("vote_result", "candidate_name VARCHAR(40) not null");
+    AddRow("vote_result", "candidate_name VARCHAR(40) not null");
     AddRow("vote_result", "point int not null");
     AddRow("voter", "username VARCHAR(40) not null");
     vote_info.forEach((i, i_index) =>
@@ -124,39 +118,47 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    const uri =
-        "https://osu.ppy.sh/oauth/authorize?" +
-        "client_id=11442&" +
-        "redirect_uri=" +
-        url +
-        "/authorize&" +
-        "response_type=code&scope=public";
-    return res.redirect(uri);
+    try {
+        const uri =
+            "https://osu.ppy.sh/oauth/authorize?" +
+            "client_id=11442&" +
+            "redirect_uri=" +
+            url +
+            "/authorize&" +
+            "response_type=code&scope=public";
+        return res.redirect(uri);
+    } catch (err) {
+        console.log("Error : get/login");
+    }
 });
 
 app.get("/authorize", async(req, res) => {
-    var { code } = req.query;
-    const result = await request_prom({
-        method: "POST",
-        url: "https://osu.ppy.sh/oauth/token",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: {
-            code,
-            client_id: 11442,
-            client_secret: "yPYLz0m8vFSpLvCKapevqqZ4QzVLuzq6CQPvrDqp",
-            grant_type: "authorization_code",
-            redirect_uri: "http://oktp.shop/authorize",
-        },
-        json: true,
-    });
-    res.cookie("Accept", "application/json");
-    res.cookie("Content-Type", "application/json");
-    res.cookie("Authorization", "Bearer " + result["access_token"]);
+    try {
+        var { code } = req.query;
+        const result = await request_prom({
+            method: "POST",
+            url: "https://osu.ppy.sh/oauth/token",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: {
+                code,
+                client_id: 11442,
+                client_secret: "yPYLz0m8vFSpLvCKapevqqZ4QzVLuzq6CQPvrDqp",
+                grant_type: "authorization_code",
+                redirect_uri: "http://oktp.shop/authorize",
+            },
+            json: true,
+        });
+        res.cookie("Accept", "application/json");
+        res.cookie("Content-Type", "application/json");
+        res.cookie("Authorization", "Bearer " + result["access_token"]);
 
-    res.redirect("/main");
+        res.redirect("/main");
+    } catch (err) {
+        console.log("Error : get/authorize");
+    }
 });
 
 app.get("/main", (req, res) => {
@@ -175,42 +177,47 @@ app.get("/main", (req, res) => {
             headers: headers,
         };
         request(options, function(error, response, body) {
-			var obj;
-			try{
-				obj = JSON.parse(body);
-			}catch(e){
-				console.log("ERROR at main req");
-			}
-			try{
-				const join_date = obj.join_date.split("T")[0].split("-");
-            if (obj.statistics.play_count < compare.playcount) {
-                res.send("<script>alert('플레이 카운트가 5000 미만입니다. 투표에 참여하실 수 없습니다.');location.href='/';</script>");
-            } else if (
-                Number(join_date[0]) >= compare.YEAR ||
-                (Number(join_date[1]) >= compare.MONTH && Number(join_date[0]) == compare.YEAR)
-            ) {
-                res.send(
-                    "<script>alert('최초가입일이 " +
-                    compare.YEAR +
-                    "년 " +
-                    compare.MONTH +
-                    "월 이후입니다. 투표에 참여하실 수 없습니다.');location.href='/';</script>"
-                );
-            } else {
-                const params = {
-                    nicname_me: obj["username"],
-                    id_me: obj["id"],
-                    image_me: obj["avatar_url"],
-                    userpage_me: "osu.ppy.sh/users/" + obj["id"],
-                    vote_info: vote_info,
-                };
-                res.cookie("params", params);
-                res.render("voting.ejs", params);
+            var obj;
+            try {
+                obj = JSON.parse(body);
+            } catch (e) {
+                console.log("ERROR at main req");
             }
-			}catch(err){
-				console.log(err)
-				res.send("<script>alert('서버에러! 재접속 부탁드립니다!');location.href='/';</script>");
-			}
+            try {
+                const join_date = obj.join_date.split("T")[0].split("-");
+                if (obj.statistics.play_count < compare.playcount) {
+                    res.send(
+                        "<script>alert('플레이 카운트가 5000 미만입니다. 투표에 참여하실 수 없습니다.');location.href='/';</script>"
+                    );
+                } else if (
+                    Number(join_date[0]) >= compare.YEAR ||
+                    (Number(join_date[1]) >= compare.MONTH &&
+                        Number(join_date[0]) == compare.YEAR)
+                ) {
+                    res.send(
+                        "<script>alert('최초가입일이 " +
+                        compare.YEAR +
+                        "년 " +
+                        compare.MONTH +
+                        "월 이후입니다. 투표에 참여하실 수 없습니다.');location.href='/';</script>"
+                    );
+                } else {
+                    const params = {
+                        nicname_me: obj["username"],
+                        id_me: obj["id"],
+                        image_me: obj["avatar_url"],
+                        userpage_me: "osu.ppy.sh/users/" + obj["id"],
+                        vote_info: vote_info,
+                    };
+                    res.cookie("params", params);
+                    res.render("voting.ejs", params);
+                }
+            } catch (err) {
+                console.log(err);
+                res.send(
+                    "<script>alert('서버에러! 재접속 부탁드립니다!');location.href='/';</script>"
+                );
+            }
         });
     } catch (err) {
         res.redirect("/");
@@ -218,47 +225,72 @@ app.get("/main", (req, res) => {
 });
 
 app.post("/init", (req, res) => {
-	today = new Date();
-    console.log("initalized :", req.body["id"], today);
-    retrieveDB(res, String(req.body["id"]));
+    try {
+        today = new Date();
+        console.log("initalized :", req.body["id"], today);
+        retrieveDB(res, String(req.body["id"]));
+    } catch (err) {
+        console.log("Error : post/init");
+    }
 });
 
 app.post("/main", (req, res) => {
-    const headers = {
-        Accept: req.cookies["Accept"],
-        "Content-Type": req.cookies["Content-Type"],
-        Authorization: req.cookies["Authorization"],
-    };
-    if (!req.body) {
-        return res.status(400).json({
-            status: "error",
-            error: "req body cannot be empty",
-        });
-    }
-    val = req.body["name"];
-    console.log(req.body);
-    request({
-            url: "https://osu.ppy.sh/api/v2/users/" + val,
-            //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
-            qs: {
-                mode: "osu",
-                limit: 1,
+    try {
+        const headers = {
+            Accept: req.cookies["Accept"],
+            "Content-Type": req.cookies["Content-Type"],
+            Authorization: req.cookies["Authorization"],
+        };
+        if (!req.body) {
+            return res.status(400).json({
+                status: "error",
+                error: "req body cannot be empty",
+            });
+        }
+        val = req.body["name"];
+        console.log(req.body);
+        request({
+                url: "https://osu.ppy.sh/api/v2/users/" + val,
+                //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
+                qs: {
+                    mode: "osu",
+                    limit: 1,
+                },
+                method: "GET",
+                headers: headers,
             },
-            method: "GET",
-            headers: headers,
-        },
-        function(error2, response2, body2) {
-            var json = {};
-			try{
-				var Jbody = JSON.parse(body2);
-			}catch(e){
-				console.log("ERROR at main post");
-			}
-            try {
-                if (
-                    Jbody["username"] == "undefined" ||
-                    Jbody["country"]["code"] != "KR"
-                ) {
+            function(error2, response2, body2) {
+                var json = {};
+                try {
+                    var Jbody = JSON.parse(body2);
+                } catch (e) {
+                    console.log("ERROR at main post");
+                }
+                try {
+                    if (
+                        Jbody["username"] == "undefined" ||
+                        Jbody["country"]["code"] != "KR"
+                    ) {
+                        res.json({
+                            name: "",
+                            img: "",
+                            rank: "",
+                            id: "",
+                            inputname: req.body["inputname"],
+                        });
+                        return 0;
+                    } else {
+                        json.name = Jbody["username"];
+                        json.img = Jbody["avatar_url"];
+                        json.rank = Jbody["statistics"]["global_rank"];
+                        json.id = Jbody["id"];
+                        json.inputname = req.body["inputname"];
+                        console.log(json);
+                        json.rank = "# " + json.rank;
+                        res.json(json);
+                        return 0;
+                    }
+                } catch (err) {
                     res.json({
                         name: "",
                         img: "",
@@ -266,29 +298,19 @@ app.post("/main", (req, res) => {
                         id: "",
                         inputname: req.body["inputname"],
                     });
-                    return 0;
-                } else {
-                    json.name = Jbody["username"];
-                    json.img = Jbody["avatar_url"];
-                    json.rank = Jbody["statistics"]["global_rank"];
-                    json.id = Jbody["id"];
-                    json.inputname = req.body["inputname"];
-                    console.log(json);
-                    json.rank = "# " + json.rank;
-                    res.json(json);
-                    return 0;
                 }
-            } catch (err) {
-                res.json({
-                    name: "",
-                    img: "",
-                    rank: "",
-                    id: "",
-                    inputname: req.body["inputname"],
-                });
             }
-        }
-    );
+        );
+    } catch (err) {
+        res.json({
+            name: "",
+            img: "",
+            rank: "",
+            id: "",
+            inputname: req.body["inputname"],
+        });
+        console.log("Error : post/main")
+    }
 });
 
 app.post("/submit", (req, res) => {
@@ -303,49 +325,66 @@ app.post("/submit", (req, res) => {
         headers: headers,
     };
     request(options, function(error, response, body) {
-		try{
-		const obj = JSON.parse(body);
-		
-		const db = req.body;
-		var c = Object.keys(req.body)
-		var check_num = 0;
-		for(var i = 0; i < c.length; i++){
-			for(var j = i+1; j < c.length ; j++){
-				if(db[c[i]] == db[c[j]] && db[c[i]].replace(' ','') != '') {
-					check_num++;
-				}
-			}
-		}
-        if (req.body.id != obj.id || check_num != 0) {
-            res.status(300)
-        } else {
-            var submitted_data = req.body;
-			today = new Date();
-            console.log("submit request :", req.body.id, today);
-            submit_list(req.body);
-			submit_list2(req.body);
-            res.json({ mes: "Your vote has been successfully submitted. Thank you for participating!", redirect: "/" });
+        try {
+            const obj = JSON.parse(body);
+
+            const db = req.body;
+            var c = Object.keys(req.body);
+            var check_num = 0;
+            for (var i = 0; i < c.length; i++) {
+                for (var j = i + 1; j < c.length; j++) {
+                    if (
+                        db[c[i]] == db[c[j]] &&
+                        db[c[i]].replace(" ", "") != ""
+                    ) {
+                        check_num++;
+                    }
+                }
+            }
+            if (req.body.id != obj.id || check_num != 0) {
+                res.status(300);
+            } else {
+                var submitted_data = req.body;
+                today = new Date();
+                console.log("submit request :", req.body.id, today);
+                submit_list(req.body);
+                submit_list2(req.body);
+                res.json({
+                    mes: "Your vote has been successfully submitted. Thank you for participating!",
+                    redirect: "/",
+                });
+            }
+        } catch (e) {
+            console.log("ERROR at submit");
         }
-		}catch(e){
-		console.log("ERROR at submit");
-		}
+    });
+});
 
-    })
-	
-
+app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
+    try {
+        con.query(
+            "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
+            (err, result) => {
+                if (!err) {
+                    var data = JSON.parse(JSON.stringify(result))
+                    res.render("result.ejs", data);
+                }
+            }
+        );
+    } catch (err) {
+        console.log("Error : /EXHCaUv655BWYvrGcqTD");
+    }
 });
 
 function retrieveDB(res, id) {
     var db_out = {};
     con.query("SELECT * FROM voter WHERE id = '" + id + "'", (err, result) => {
         if (result.length) {
-			try{
-            res.json(JSON.parse(JSON.stringify(result[0])));
-			}catch(e){
-				
-			}
+            try {
+                res.json(JSON.parse(JSON.stringify(result[0])));
+            } catch (e) {}
         }
-    })
+    });
 }
 
 function submit_list(json) {
@@ -427,7 +466,7 @@ function submit_list(json) {
                     }
                 );
             } else {
-				today = new Date()
+                today = new Date();
                 console.log("DB UPDATE SUCCESS :", json.id, today);
             }
         });
@@ -438,37 +477,61 @@ function submit_list(json) {
 }
 
 function submit_list2(json) {
-	con.query("SELECT voter_id FROM vote_result WHERE voter_id = '" + json.id + "'",(err,result)=>{
-		if(result.length){
-			con.query("DELETE FROM vote_result WHERE voter_id = '"+ json.id + "'",(err,result)=>{
-				if(!err) {
-					today = new Date()
-					console.log("DB2 DELETE SUCEESS :", json.id, today)
-				}
-			})
-		}
-		var error = 0;
+    con.query(
+        "SELECT voter_id FROM vote_result WHERE voter_id = '" + json.id + "'",
+        (err, result) => {
+            if (result.length) {
+                con.query(
+                    "DELETE FROM vote_result WHERE voter_id = '" +
+                    json.id +
+                    "'",
+                    (err, result) => {
+                        if (!err) {
+                            today = new Date();
+                            console.log("DB2 DELETE SUCEESS :", json.id, today);
+                        }
+                    }
+                );
+            }
+            var error = 0;
 
-		var init = "INSERT INTO vote_result (voter_id, candidate_id, candidate_name, point) VALUES ('"
-		vote_info.forEach((i, i_index) => i.forEach((j, j_index) => {
-			if (j) {
-				if (json[String(10 - i_index) + "_" + String(j_index + 1)] != '') {
-					var temp = init;
-					temp += json.id + "','";
-					temp += json[String(10 - i_index) + "_" + String(j_index + 1) + "_id"] + "','"
-					temp += json[String(10 - i_index) + "_" + String(j_index + 1)] + "','"
-					temp += String(10 - i_index) + "')"
-					con.query(temp,(err,result)=>{
-						if(err) error++;
-					})
-
-				}
-			}
-
-		}))
-		if(!error){
-			today = new Date()
-			console.log("DB2 UPDATE SUCCESS :", json.id, today);
-		}
-	})
+            var init =
+                "INSERT INTO vote_result (voter_id, candidate_id, candidate_name, point) VALUES ('";
+            vote_info.forEach((i, i_index) =>
+                i.forEach((j, j_index) => {
+                    if (j) {
+                        if (
+                            json[
+                                String(10 - i_index) + "_" + String(j_index + 1)
+                            ] != ""
+                        ) {
+                            var temp = init;
+                            temp += json.id + "','";
+                            temp +=
+                                json[
+                                    String(10 - i_index) +
+                                    "_" +
+                                    String(j_index + 1) +
+                                    "_id"
+                                ] + "','";
+                            temp +=
+                                json[
+                                    String(10 - i_index) +
+                                    "_" +
+                                    String(j_index + 1)
+                                ] + "','";
+                            temp += String(10 - i_index) + "')";
+                            con.query(temp, (err, result) => {
+                                if (err) error++;
+                            });
+                        }
+                    }
+                })
+            );
+            if (!error) {
+                today = new Date();
+                console.log("DB2 UPDATE SUCCESS :", json.id, today);
+            }
+        }
+    );
 }

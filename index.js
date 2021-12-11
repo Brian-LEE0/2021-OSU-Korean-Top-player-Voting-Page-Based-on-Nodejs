@@ -367,7 +367,7 @@ app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
             (err, result) => {
                 if (!err) {
                     var data = JSON.parse(JSON.stringify(result))
-                    res.render("result.ejs", data);
+                    res.render("result.ejs", {"data":data});
                 }
             }
         );
