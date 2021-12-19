@@ -184,8 +184,15 @@ app.get("/main", (req, res) => {
                 console.log("ERROR at main req");
             }
             try {
-                const join_date = obj.join_date.split("T")[0].split("-");
-                if (obj.statistics.play_count < compare.playcount) {
+				try{
+					var join_date = obj.join_date.split("T")[0].split("-");
+					var play_count = obj.statistics.play_count;
+				}catch(err){
+					var join_date = [2999,12];
+					var play_count = 0;
+					console.log("cannot load player info");
+				}
+                if (play_count < compare.playcount) {
                     res.send(
                         "<script>alert('플레이 카운트가 5000 미만입니다. 투표에 참여하실 수 없습니다.');location.href='/';</script>"
                     );
@@ -361,16 +368,37 @@ app.post("/submit", (req, res) => {
 });
 
 app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
-    try {
+	var data = {}
+	var db1 = 0
+	var db2 = 0
+	try {
         con.query(
             "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
             (err, result) => {
-                if (!err) {
-                    var data = JSON.parse(JSON.stringify(result))
-                    res.render("result.ejs", data);
-                }
+                if (!err){
+					data = JSON.parse(JSON.stringify(result))
+					con.query(
+						"SELECT count(DISTINCT voter_id) as db1_count FROM vote_result",
+						(err, result) => {
+							if (!err){ 
+								db1 = Number(JSON.parse(JSON.stringify(result))[0]["db1_count"])
+								con.query(
+									"SELECT count(DISTINCT id) as db2_count FROM voter",
+									(err, result) => {
+										if (!err) {
+											db2 = Number(JSON.parse(JSON.stringify(result))[0]["db2_count"])
+											res.render("result.ejs", {"data":data,"db1":db1,"db2":db2});
+										}
+									}
+								);
+								
+							}
+						}
+					);
+				}
             }
-        );
+        );		
+		
     } catch (err) {
         console.log("Error : /EXHCaUv655BWYvrGcqTD");
     }
