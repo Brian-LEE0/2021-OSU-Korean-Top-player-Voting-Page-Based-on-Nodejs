@@ -114,7 +114,10 @@ app.listen(80, () => {
 });
 
 app.get("/", (req, res) => {
-    return res.render("index");
+    return res.send(
+        "<script>alert('The voting period has ended. Thank you to everyone who participated!')</script>"
+    );
+    //return res.render("index");
 });
 
 app.get("/login", (req, res) => {
@@ -162,6 +165,7 @@ app.get("/authorize", async(req, res) => {
 });
 
 app.get("/main", (req, res) => {
+    res.redirect("/");
     try {
         if (!req.cookies["Authorization"]) {
             res.redirect("/");
@@ -371,12 +375,35 @@ app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
 	var data = {}
 	var db1 = 0
 	var db2 = 0
+    var exception_list = ["6896883","1516650","11692602"]
+    var query_str = "SELECT "+
+    "count(candidate_name) as _count, "+ 
+    "group_concat(DISTINCT candidate_name separator '') AS name, "+
+    "candidate_id, sum(point) AS pt, "+
+    "ROW_NUMBER() OVER ( "+
+    "ORDER BY sum(point) DESC, "+
+        "count(case when point = 10 then 10 end) DESC," +
+        "count(case when point = 9 then 9 end) DESC, "+
+        "count(case when point = 8 then 8 end) DESC, "+
+        "count(case when point = 7 then 7 end) DESC, "+
+        "count(case when point = 6 then 6 end) DESC, "+
+        "count(case when point = 5 then 5 end) DESC, "+
+        "count(case when point = 4 then 4 end) DESC, "+
+        "count(case when point = 3 then 3 end) DESC) as ranking "+
+    "FROM vote_result WHERE candidate_id NOT IN (";
+    exception_list.forEach((i,i_index)=>{
+        query_str += "'"+ i + "'"
+        if (i_index < exception_list.length - 1){
+            query_str += ", "
+        } 
+    })
+    query_str += ") GROUP BY candidate_id ORDER BY pt DESC"
 	try {
         con.query(
-            "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
+            query_str,
             (err, result) => {
                 if (!err){
-					data = JSON.parse(JSON.stringify(result))
+					data = JSON.parse(JSON.stringify(result)).slice(0,25);
 					con.query(
 						"SELECT count(DISTINCT voter_id) as db1_count FROM vote_result",
 						(err, result) => {

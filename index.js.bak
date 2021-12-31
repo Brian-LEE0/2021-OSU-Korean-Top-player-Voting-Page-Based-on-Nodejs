@@ -190,7 +190,7 @@ app.get("/main", (req, res) => {
 				}catch(err){
 					var join_date = [2999,12];
 					var play_count = 0;
-					console.log("cannot load player info");
+					console.log("cannot load player's info");
 				}
                 if (play_count < compare.playcount) {
                     res.send(
@@ -376,7 +376,7 @@ app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
             "SELECT count(candidate_name) as _count, group_concat(DISTINCT candidate_name separator '') AS name, candidate_id, sum(point) AS pt,  RANK() OVER (ORDER BY sum(point) DESC) as ranking FROM vote_result GROUP BY candidate_id ORDER BY pt DESC",
             (err, result) => {
                 if (!err){
-					data = JSON.parse(JSON.stringify(result))
+					data = JSON.parse(JSON.stringify(result)).slice(0,24)
 					con.query(
 						"SELECT count(DISTINCT voter_id) as db1_count FROM vote_result",
 						(err, result) => {

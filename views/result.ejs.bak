@@ -34,7 +34,7 @@
 		font-size: 5rem;
 	}
 	
-	abc {
+	h3 {
 		color: white;
 		font-size: 3rem;
 		text-align : right;
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-	<abc>TOTAL : <%= db1 %></abc>
+	<h3>TOTAL : <%= db1 %></h3>
     <table width="100%" border="1">
         <tr>
             <th>RANK</th>
