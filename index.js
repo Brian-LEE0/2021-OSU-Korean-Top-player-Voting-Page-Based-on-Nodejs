@@ -9,8 +9,9 @@ const date = require("date-utils");
 
 const app = express();
 
-const url = "http://oktp.shop";
+const url = "http://oktp2022.shop";
 //const url = "http://localhost:80";
+//const url = "http://3.36.131.20";
 
 const sql_info = {
     host: "localhost",
@@ -19,7 +20,7 @@ const sql_info = {
 };
 var con = mysql.createConnection(sql_info);
 const compare = {
-    YEAR: 2021,
+    YEAR: 2022,
     MONTH: 05,
     playcount: 5000,
 };
@@ -36,12 +37,12 @@ const vote_info = [
 ];
 
 con.connect((err) => {
-    con.query("CREATE DATABASE 2021_OsuKoreanTopPlayer", (err, result) => {
+    con.query("CREATE DATABASE 2022_OsuKoreanTopPlayer", (err, result) => {
         if (!err)
-            console.log("success to CREATE DATABASE 2021_OsuKoreanTopPlayer");
+            console.log("success to CREATE DATABASE 2022_OsuKoreanTopPlayer");
     });
-    con.query("USE 2021_OsuKoreanTopPlayer", (err, result) => {
-        if (!err) console.log("success to USE 2021_OsuKoreanTopPlayer");
+    con.query("USE 2022_OsuKoreanTopPlayer", (err, result) => {
+        if (!err) console.log("success to USE 2022_OsuKoreanTopPlayer");
     });
     var temp;
     if (err) console.log(err);
@@ -114,10 +115,10 @@ app.listen(80, () => {
 });
 
 app.get("/", (req, res) => {
-    return res.send(
+    /*return res.send(
         "<script>alert('The voting period has ended. Thank you to everyone who participated!')</script>"
-    );
-    //return res.render("index");
+    );*/
+    return res.render("index");
 });
 
 app.get("/login", (req, res) => {
@@ -150,7 +151,7 @@ app.get("/authorize", async(req, res) => {
                 client_id: 11442,
                 client_secret: "yPYLz0m8vFSpLvCKapevqqZ4QzVLuzq6CQPvrDqp",
                 grant_type: "authorization_code",
-                redirect_uri: "http://oktp.shop/authorize",
+                redirect_uri: url + "/authorize",
             },
             json: true,
         });
@@ -165,7 +166,7 @@ app.get("/authorize", async(req, res) => {
 });
 
 app.get("/main", (req, res) => {
-    res.redirect("/");
+    //res.redirect("/");
     try {
         if (!req.cookies["Authorization"]) {
             res.redirect("/");
@@ -259,7 +260,7 @@ app.post("/main", (req, res) => {
             });
         }
         val = req.body["name"];
-        console.log(req.body);
+        //console.log(req.body);
         request({
                 url: "https://osu.ppy.sh/api/v2/users/" + val,
                 //url: 'https://osu.ppy.sh/api/v2/users/' + val + '/osu',
@@ -278,9 +279,11 @@ app.post("/main", (req, res) => {
                     console.log("ERROR at main post");
                 }
                 try {
+			exception_users = [1234,1235] // user id
                     if (
                         Jbody["username"] == "undefined" ||
-                        Jbody["country"]["code"] != "KR"
+                        Jbody["country"]["code"] != "KR" || 
+			exception_users.includes(Jbody["id"])
                     ) {
                         res.json({
                             name: "",
@@ -296,7 +299,7 @@ app.post("/main", (req, res) => {
                         json.rank = Jbody["statistics"]["global_rank"];
                         json.id = Jbody["id"];
                         json.inputname = req.body["inputname"];
-                        console.log(json);
+                        console.log(json.name + " " + json.rank);
                         json.rank = "# " + json.rank;
                         res.json(json);
                         return 0;

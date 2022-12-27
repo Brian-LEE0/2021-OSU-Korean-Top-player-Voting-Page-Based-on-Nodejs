@@ -269,7 +269,7 @@
 										return setTimeout(() => {
 											if (Number(name.split('_')[1]) == 1) input.attr("placeholder", "Click here and type to vote your best player (Required, 필수)")
 											else input.attr("placeholder", "Click here and type to vote your best player")
-										}, 3000);;
+										}, 1000);;
 
 									} else if (compare == -2) {
 										var input = $('input[name=' + name + ']')
@@ -278,12 +278,12 @@
 										return setTimeout(() => {
 											if (Number(name.split('_')[1]) == 0) input.attr("placeholder", "Click here and type to vote your best player (Required, 필수)")
 											else input.attr("placeholder", "Click here and type to vote your best player")
-										}, 3000);;
+										}, 1000);;
 									}
 								}
 							}
 						})
-					}, 500))
+					}, 200))
 			}))
 
 
