@@ -177,6 +177,7 @@
                 var str = "";
                 for (var i = 0; i < vote_info.length; i++) {
                     if (!db[String(10 - i) + "_1"]) {
+                        str += "반드시 한명 이상의 " + String(10 - i) + "pt 플레이어를 투표 해주셔야 합니다.\n"
                         str += "You must fill up the first box of " + String(10 - i) + "pt. \n"
                     }
                 }
@@ -192,7 +193,7 @@
 				if(check_num != 0){
 					alert("Invalid access!");					
 				}else if (!str) {
-                    if (confirm("\nAre you sure to submit? You're able to update your vote anytime until vote ends.")) {
+                    if (confirm("확실하게 제출하시겠습니까? 투표가 마감될 때까지 언제든지 투표를 수정하실 수 있습니다.\nAre you sure to submit? You're able to update your vote anytime until vote ends.")) {
                         $.ajax({
                             url: '/submit',
                             type: 'post',
@@ -283,7 +284,7 @@
 								}
 							}
 						})
-					}, 200))
+					}, 1000))
 			}))
 
 

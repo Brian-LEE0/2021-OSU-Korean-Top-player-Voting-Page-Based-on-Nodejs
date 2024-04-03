@@ -9,21 +9,34 @@ const date = require("date-utils");
 
 const app = express();
 
-const url = "http://oktp2022.shop";
-//const url = "http://localhost:80";
-//const url = "http://3.36.131.20";
+const url = "https://oktp2023.store"
+const PORT = 54321
+
+const EXCEPTION_USERS = [
+    11692602,
+    8472976,
+    2043401,
+    1997633,
+    19243033,
+    1777162,
+    11829390,
+    1041943
+];
+
+const DEADLINE = '2024-01-01T00:00:00+09:00';
+const DATE_DEADLINE = new Date(DEADLINE);
 
 const sql_info = {
-    host: "localhost",
-    user: "root",
-    password: "01085244701",
+    host: "172.17.0.1",
+    user: "nnaisle123",
+    password: "latebookcafe",
 };
 var con = mysql.createConnection(sql_info);
 const compare = {
-    YEAR: 2022,
-    MONTH: 05,
+    YEAR: 2023,
+    MONTH: 5,
     playcount: 5000,
-};
+}; // set requirement of voter 
 var today = new Date();
 const vote_info = [
     [1, 0, 0],
@@ -35,14 +48,14 @@ const vote_info = [
     [1, 1, 1],
     [1, 1, 1],
 ];
-
+let TOTAL_VOTER_COUNT = -1;
 con.connect((err) => {
-    con.query("CREATE DATABASE 2022_OsuKoreanTopPlayer", (err, result) => {
+    con.query("CREATE DATABASE 2023_OsuKoreanTopPlayer", (err, result) => {
         if (!err)
-            console.log("success to CREATE DATABASE 2022_OsuKoreanTopPlayer");
+            console.log("success to CREATE DATABASE 2023_OsuKoreanTopPlayer");
     });
-    con.query("USE 2022_OsuKoreanTopPlayer", (err, result) => {
-        if (!err) console.log("success to USE 2022_OsuKoreanTopPlayer");
+    con.query("USE 2023_OsuKoreanTopPlayer", (err, result) => {
+        if (!err) console.log("success to USE 2023_OsuKoreanTopPlayer");
     });
     var temp;
     if (err) console.log(err);
@@ -93,7 +106,19 @@ con.connect((err) => {
             }
         })
     );
+    con.query(
+        "SELECT count(DISTINCT voter_id) as count FROM vote_result",
+        (err, result) => {
+            if (!err) {
+                TOTAL_VOTER_COUNT = Number(JSON.parse(JSON.stringify(result))[0]["count"])
+            }
+        }
+    );
 });
+
+
+
+
 
 function AddRow(table, str) {
     var temp;
@@ -110,18 +135,28 @@ app.use(cookieParser());
 app.use(express.static("assets")); // path of assets
 app.set("view engine", "ejs");
 
-app.listen(80, () => {
-    console.log("Server is running on port : 80\nurl : " + url);
+
+app.listen(PORT, () => {
+    console.log("Server is running on port : " + PORT + "\nurl : " + url);
 });
 
 app.get("/", (req, res) => {
-    /*return res.send(
-        "<script>alert('The voting period has ended. Thank you to everyone who participated!')</script>"
-    );*/
-    return res.render("index");
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.send(
+            "<script>alert('The voting period has ended. Thank you to everyone who participated!')</script>"
+        );
+    }
+    console.log({DEADLINE, TOTAL_VOTER_COUNT})
+    return res.render("index", {DEADLINE, TOTAL_VOTER_COUNT});
+
 });
 
 app.get("/login", (req, res) => {
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.redirect("/");
+    }
     try {
         const uri =
             "https://osu.ppy.sh/oauth/authorize?" +
@@ -137,6 +172,10 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/authorize", async(req, res) => {
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.redirect("/");
+    }
     try {
         var { code } = req.query;
         const result = await request_prom({
@@ -166,7 +205,11 @@ app.get("/authorize", async(req, res) => {
 });
 
 app.get("/main", (req, res) => {
-    //res.redirect("/");
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.redirect("/");
+    }
+
     try {
         if (!req.cookies["Authorization"]) {
             res.redirect("/");
@@ -237,6 +280,10 @@ app.get("/main", (req, res) => {
 });
 
 app.post("/init", (req, res) => {
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.redirect("/");
+    }
     try {
         today = new Date();
         console.log("initalized :", req.body["id"], today);
@@ -247,7 +294,12 @@ app.post("/init", (req, res) => {
 });
 
 app.post("/main", (req, res) => {
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.redirect("/");
+    }
     try {
+        // return res.redirect("/");
         const headers = {
             Accept: req.cookies["Accept"],
             "Content-Type": req.cookies["Content-Type"],
@@ -259,7 +311,7 @@ app.post("/main", (req, res) => {
                 error: "req body cannot be empty",
             });
         }
-        val = req.body["name"];
+        val = req.body["name"].trim();
         //console.log(req.body);
         request({
                 url: "https://osu.ppy.sh/api/v2/users/" + val,
@@ -279,11 +331,10 @@ app.post("/main", (req, res) => {
                     console.log("ERROR at main post");
                 }
                 try {
-			exception_users = [1234,1235] // user id
                     if (
                         Jbody["username"] == "undefined" ||
                         Jbody["country"]["code"] != "KR" || 
-			exception_users.includes(Jbody["id"])
+                        EXCEPTION_USERS.includes(Jbody["id"])
                     ) {
                         res.json({
                             name: "",
@@ -328,6 +379,10 @@ app.post("/main", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        return res.redirect("/");
+    }
     const headers = {
         Accept: req.cookies["Accept"],
         "Content-Type": req.cookies["Content-Type"],
@@ -364,7 +419,7 @@ app.post("/submit", (req, res) => {
                 submit_list(req.body);
                 submit_list2(req.body);
                 res.json({
-                    mes: "Your vote has been successfully submitted. Thank you for participating!",
+                    mes: "소중한 한표가 전송 되었습니다! 참여해 주셔서 감사합니다.\nYour vote has been successfully submitted. Thank you for participating!",
                     redirect: "/",
                 });
             }
@@ -374,11 +429,20 @@ app.post("/submit", (req, res) => {
     });
 });
 
-app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
+let Cache = {}
+
+app.get("/kp1W2rtbl8LD5MvRLXG8WJW3UjuUGA", (req, res) => {
+    const now = new Date();
+    if (DATE_DEADLINE < now){
+        if (Object.keys(Cache).length){
+            return res.render("result.ejs", Cache);
+        }
+    }
+
 	var data = {}
 	var db1 = 0
 	var db2 = 0
-    var exception_list = ["6896883","1516650","11692602"]
+    var exception_list = EXCEPTION_USERS
     var query_str = "SELECT "+
     "count(candidate_name) as _count, "+ 
     "group_concat(DISTINCT candidate_name separator '') AS name, "+
@@ -400,13 +464,13 @@ app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
             query_str += ", "
         } 
     })
-    query_str += ") GROUP BY candidate_id ORDER BY pt DESC"
+    query_str += ") GROUP BY candidate_id ORDER BY ranking ASC"
 	try {
         con.query(
             query_str,
             (err, result) => {
                 if (!err){
-					data = JSON.parse(JSON.stringify(result)).slice(0,25);
+					data = JSON.parse(JSON.stringify(result));//.slice(0,25);
 					con.query(
 						"SELECT count(DISTINCT voter_id) as db1_count FROM vote_result",
 						(err, result) => {
@@ -417,7 +481,8 @@ app.get("/EXHCaUv655BWYvrGcqTD", (req, res) => {
 									(err, result) => {
 										if (!err) {
 											db2 = Number(JSON.parse(JSON.stringify(result))[0]["db2_count"])
-											res.render("result.ejs", {"data":data,"db1":db1,"db2":db2});
+                                            Cache = {"data":data,"db1":db1,"db2":db2}
+											return res.render("result.ejs", Cache);
 										}
 									}
 								);
@@ -520,10 +585,14 @@ function submit_list(json) {
                 con.query(
                     "DELETE FROM voter WHERE id = '" + json.id + "'",
                     (err, result) => {
-                        if (!err) submit_list(json);
+                        if (!err) {
+                            TOTAL_VOTER_COUNT--;
+                            submit_list(json);
+                        }
                     }
                 );
             } else {
+                TOTAL_VOTER_COUNT++;
                 today = new Date();
                 console.log("DB UPDATE SUCCESS :", json.id, today);
             }

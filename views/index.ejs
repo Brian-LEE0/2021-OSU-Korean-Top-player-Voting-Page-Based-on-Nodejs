@@ -1,11 +1,60 @@
 <%- include ("./layout/top") %>
     <div class="content">
         <div class="text">
-            <h1>CHOOSE YOUR BEST KOREAN PLAYER IN 2021</h1>
+            <h4 id =voter_count></h6>
+            <h1 id="countdown"></h1>
+            <h1 id="deadline"></h1>
         </div>
         <div class="black-bg ">
             <div class="content-bg">
             </div>
         </div>
+        
     </div>
+    
+    <script>
+        const deadline = new Date("<%= DEADLINE %>");
+        const total_voter_count = <%= TOTAL_VOTER_COUNT %> + 1;
+        
+        function addThSuffix(number) {
+            if (number % 100 >= 11 && number % 100 <= 13) {
+                return number + "th";
+            } else {
+                var lastDigit = number % 10;
+                var suffix = (lastDigit === 1) ? "st" : (lastDigit === 2) ? "nd" : (lastDigit === 3) ? "rd" : "th";
+                return number + suffix;
+            }
+        }
+
+        document.getElementById('deadline').innerHTML = 'until ' + deadline.toLocaleDateString() + ' ' + pad(deadline.getHours(),2) + ':' + pad(deadline.getMinutes(),2) + ':' + pad(deadline.getSeconds(),2) + ' UTC+9';
+        document.getElementById('voter_count').innerHTML = 'Here\'s your chance to be the ' + addThSuffix(total_voter_count)  + ' voter!';
+
+        function pad(n, width, z) {
+            z = z || '0';
+            n = n + '';
+            return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+        }
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = deadline - now;
+        
+            if (timeDifference > 0) {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = pad(Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),2);
+                const minutes = pad(Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)),2);
+                const seconds = pad(Math.floor((timeDifference % (1000 * 60)) / 1000),2);
+        
+                document.getElementById('countdown').innerHTML = '' + days + ' Days ' + hours + ':' + minutes + ':' + seconds + '';
+            } else {
+                document.getElementById('countdown').innerHTML = 'Voting is closed! Thank you for your participation.';
+            }
+        }
+
+        // 초기 업데이트
+        updateCountdown();
+
+        // 1초마다 업데이트
+        setInterval(updateCountdown, 1000);
+    </script>
 <%- include ("./layout/bottom") %>
